@@ -1,10 +1,16 @@
 package com.patilweb.streambrowser;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,6 +24,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -30,7 +37,12 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.webkit.WebViewCompat;
+import androidx.webkit.WebViewFeature;
+
 public class BrowserActivity extends Activity implements TvCursorView.Listener {
+
+    private static final int REQ_MIC = 42;
 
     private WebView webView;
     private TvCursorView cursor;
@@ -40,11 +52,28 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     private FrameLayout fullscreenContainer;
     private View customView;
     private WebChromeClient.CustomViewCallback customViewCallback;
+    private PermissionRequest pendingWebPermission;
+    private AudioManager audioManager;
+    private AudioFocusRequest audioFocusRequest;
     private boolean aggressive;
     private boolean menuVisible;
     private boolean keyboardVisible;
     private boolean syncingBridge;
     private final Handler handler = new Handler(Looper.getMainLooper());
+
+    /** Unmute HTML5 / common players that start muted for autoplay policies. */
+    private static final String UNMUTE_JS =
+            "(function(){"
+                    + "if(window.__stvAudio)return;window.__stvAudio=1;"
+                    + "function fix(v){try{if(!v)return;v.muted=false;v.defaultMuted=false;"
+                    + "v.volume=1;v.removeAttribute('muted');"
+                    + "var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(e){}}"
+                    + "function scan(){document.querySelectorAll('video,audio').forEach(fix);}"
+                    + "scan();"
+                    + "document.addEventListener('play',function(ev){fix(ev.target);},true);"
+                    + "new MutationObserver(scan).observe(document.documentElement||document.body,"
+                    + "{childList:true,subtree:true});"
+                    + "})();";
 
     /** Ask HTML5 / common players to enter fullscreen when playback starts. */
     private static final String AUTO_FULLSCREEN_JS =
@@ -180,9 +209,81 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         });
         btnHome.setOnClickListener(v -> finish());
 
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        ensureMicPermission();
         setupWebView();
         webView.loadUrl(url);
         restoreMouseMode();
+        requestPlaybackAudioFocus();
+    }
+
+    private void ensureMicPermission() {
+        if (Build.VERSION.SDK_INT < 23) return;
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, REQ_MIC);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode != REQ_MIC) return;
+        if (pendingWebPermission != null) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                grantWebPermissions(pendingWebPermission);
+            } else {
+                pendingWebPermission.deny();
+            }
+            pendingWebPermission = null;
+        }
+    }
+
+    private void requestPlaybackAudioFocus() {
+        if (audioManager == null) return;
+        try {
+            if (Build.VERSION.SDK_INT >= 26) {
+                if (audioFocusRequest == null) {
+                    audioFocusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+                            .setAudioAttributes(new AudioAttributes.Builder()
+                                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                                    .setContentType(AudioAttributes.CONTENT_TYPE_MOVIE)
+                                    .build())
+                            .setOnAudioFocusChangeListener(focusChange -> { })
+                            .build();
+                }
+                audioManager.requestAudioFocus(audioFocusRequest);
+            } else {
+                audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC,
+                        AudioManager.AUDIOFOCUS_GAIN);
+            }
+            // Unmute music stream if something (Assistant) left it muted.
+            audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,
+                    AudioManager.ADJUST_UNMUTE, 0);
+        } catch (Exception ignored) { }
+    }
+
+    private void abandonPlaybackAudioFocus() {
+        if (audioManager == null) return;
+        try {
+            if (Build.VERSION.SDK_INT >= 26 && audioFocusRequest != null) {
+                audioManager.abandonAudioFocusRequest(audioFocusRequest);
+            } else {
+                audioManager.abandonAudioFocus(null);
+            }
+        } catch (Exception ignored) { }
+    }
+
+    private void grantWebPermissions(PermissionRequest request) {
+        if (request == null) return;
+        try {
+            request.grant(request.getResources());
+        } catch (Exception e) {
+            try {
+                request.deny();
+            } catch (Exception ignored) { }
+        }
     }
 
     private void setupImeBridge() {
@@ -240,6 +341,9 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         webView.setFocusable(false);
         webView.setFocusableInTouchMode(false);
         webView.addJavascriptInterface(new KeyboardBridge(), "StvKeyboard");
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.MUTE_AUDIO)) {
+            WebViewCompat.setAudioMuted(webView, false);
+        }
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -284,6 +388,34 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
             }
 
             @Override
+            public void onPermissionRequest(final PermissionRequest request) {
+                if (request == null) return;
+                handler.post(() -> {
+                    boolean needsMic = false;
+                    for (String r : request.getResources()) {
+                        if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(r)) {
+                            needsMic = true;
+                            break;
+                        }
+                    }
+                    if (needsMic && Build.VERSION.SDK_INT >= 23
+                            && checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        pendingWebPermission = request;
+                        requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, REQ_MIC);
+                        return;
+                    }
+                    grantWebPermissions(request);
+                    requestPlaybackAudioFocus();
+                });
+            }
+
+            @Override
+            public void onPermissionRequestCanceled(PermissionRequest request) {
+                if (pendingWebPermission == request) pendingWebPermission = null;
+            }
+
+            @Override
             public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture,
                                          android.os.Message resultMsg) {
                 Toast.makeText(BrowserActivity.this, R.string.blocked_popup, Toast.LENGTH_SHORT).show();
@@ -306,6 +438,10 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         webView.evaluateJavascript(AdBlocker.cleanupScript(aggressive), null);
         webView.evaluateJavascript(AUTO_FULLSCREEN_JS, null);
         webView.evaluateJavascript(FOCUS_HOOK_JS, null);
+        webView.evaluateJavascript(UNMUTE_JS, null);
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.MUTE_AUDIO)) {
+            WebViewCompat.setAudioMuted(webView, false);
+        }
     }
 
     private final class KeyboardBridge {
@@ -563,6 +699,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
 
     @Override
     protected void onPause() {
+        abandonPlaybackAudioFocus();
         if (webView != null) webView.onPause();
         super.onPause();
     }
@@ -571,6 +708,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     protected void onResume() {
         super.onResume();
         if (webView != null) webView.onResume();
+        requestPlaybackAudioFocus();
         if (isFullscreen()) applyImmersiveUi(true);
         else if (!keyboardVisible) restoreMouseMode();
     }
@@ -578,6 +716,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     @Override
     protected void onDestroy() {
         handler.removeCallbacksAndMessages(null);
+        abandonPlaybackAudioFocus();
         if (isFullscreen()) exitFullscreen();
         if (webView != null) {
             webView.removeJavascriptInterface("StvKeyboard");
