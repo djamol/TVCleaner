@@ -41,6 +41,27 @@
         android:progressDrawable="@drawable/progress_bar"
         android:visibility="gone" />
 
+    <!-- Real editor that owns the TV IME; text is pushed into the focused web field. -->
+    <EditText
+        android:id="@+id/ime_bridge"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:background="#E0182233"
+        android:hint="Type here…"
+        android:imeOptions="actionSearch|flagNoExtractUi"
+        android:inputType="text|textAutoCorrect"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:singleLine="true"
+        android:textColor="#FFFFFFFF"
+        android:textColorHint="#88FFFFFF"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
     <LinearLayout
         android:id="@+id/menu_bar"
         android:layout_width="wrap_content"
@@ -85,6 +106,18 @@
             android:focusable="true"
             android:minWidth="120dp"
             android:text="@string/menu_reload"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary" />
+
+        <Button
+            android:id="@+id/btn_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/menu_btn_bg"
+            android:focusable="true"
+            android:minWidth="120dp"
+            android:text="@string/menu_keyboard"
             android:textAllCaps="false"
             android:textColor="@color/text_primary" />
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.TvInfo" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#FF0B1220</item>
+        <item name="android:colorPrimary">#FF3D8BFF</item>
+        <item name="android:statusBarColor">#FF0B1220</item>
+        <item name="android:navigationBarColor">#FF0B1220</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

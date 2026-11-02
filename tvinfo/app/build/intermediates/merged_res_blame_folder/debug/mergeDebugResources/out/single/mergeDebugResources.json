@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvinfo.app-debug-4:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvinfo.app-main-6:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvinfo.app-debug-4:\\drawable_ic_launcher.png.flat",
+        "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvinfo.app-main-6:\\drawable\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvinfo.app-debug-4:\\drawable_banner.png.flat",
+        "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvinfo.app-main-6:\\drawable\\banner.png"
+    },
+    {
+        "merged": "com.patilweb.tvinfo.app-debug-4:/layout_activity_main.xml.flat",
+        "source": "com.patilweb.tvinfo.app-main-6:/layout/activity_main.xml"
+    }
+]

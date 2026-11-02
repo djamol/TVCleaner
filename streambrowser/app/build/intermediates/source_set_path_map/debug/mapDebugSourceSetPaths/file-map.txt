@@ -1,0 +1,9 @@
+com.patilweb.streambrowser.app-core-1.1.0-0 C:\Users\amolp\.gradle\caches\8.9\transforms\60926acacdab7db78d8d06911fed0592\transformed\core-1.1.0\res
+com.patilweb.streambrowser.app-webkit-1.11.0-1 C:\Users\amolp\.gradle\caches\8.9\transforms\d108170d553ec26725d2fe7278ec7d26\transformed\webkit-1.11.0\res
+com.patilweb.streambrowser.app-pngs-2 C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\build\generated\res\pngs\debug
+com.patilweb.streambrowser.app-resValues-3 C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\build\generated\res\resValues\debug
+com.patilweb.streambrowser.app-packageDebugResources-4 C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.patilweb.streambrowser.app-packageDebugResources-5 C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.patilweb.streambrowser.app-debug-6 C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.patilweb.streambrowser.app-debug-7 C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\debug\res
+com.patilweb.streambrowser.app-main-8 C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\res

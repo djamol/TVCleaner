@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Classic mouse arrow for TV D-pad browsing -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M8,4 L8,40 L18,30 L26,44 L32,41 L24,27 L40,27 Z"
+        android:strokeWidth="2"
+        android:strokeColor="#FF000000" />
+    <path
+        android:fillColor="#FF3DDC97"
+        android:pathData="M10,8 L10,34 L18,26 L25,38 L29,36 L22,24 L34,24 Z" />
+</vector>

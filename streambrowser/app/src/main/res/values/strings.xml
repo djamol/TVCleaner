@@ -24,6 +24,9 @@
     <string name="menu_reload">Reload</string>
     <string name="menu_back">Back page</string>
     <string name="menu_forward">Forward</string>
+    <string name="menu_keyboard">Keyboard</string>
+    <string name="keyboard_shown">Keyboard shown · type with remote</string>
+    <string name="keyboard_hidden">Keyboard hidden · mouse mode</string>
     <string name="hint_remote">Banner ←→ · OK open · Hold OK remove site · Add site button</string>
     <string name="add_site">Add site</string>
     <string name="add_site_title">Add website</string>

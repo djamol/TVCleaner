@@ -73,7 +73,7 @@
          with an app set here, a red "VPN off" badge also shows while no VPN is up. -->
     <string name="vpn_app" translatable="false"></string>
     <!-- Grid rows left visible under the two dock rows on the home screen. 0 = dock sits at the bottom. -->
-    <integer name="rows_below_dock">0</integer>
+    <integer name="rows_below_dock">2</integer>
 
     <!-- Tiles per row in the grid; the dock always has this many slots. Tiles are 180dp wide at 4 columns and
          shrink to fit from 5 up (about 144dp at 5, 117dp at 6 on a 1080p TV). -->

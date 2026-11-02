@@ -1,0 +1,7 @@
+com.patilweb.tvinfo:style/Theme.TvInfo = 0x7f050000
+com.patilweb.tvinfo:string/app_name = 0x7f040000
+com.patilweb.tvinfo:id/info_text = 0x7f020000
+com.patilweb.tvinfo:layout/activity_main = 0x7f030000
+com.patilweb.tvinfo:drawable/ic_launcher = 0x7f010001
+com.patilweb.tvinfo:id/scroll = 0x7f020001
+com.patilweb.tvinfo:drawable/banner = 0x7f010000

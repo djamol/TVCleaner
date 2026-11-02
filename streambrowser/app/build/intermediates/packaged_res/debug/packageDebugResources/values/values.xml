@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#3DDC97</color>
+    <color name="bg">#0B0D12</color>
+    <color name="bg_elevated">#151922</color>
+    <color name="focus_ring">#FFFFFF</color>
+    <color name="progress">#3DDC97</color>
+    <color name="text_primary">#F2F4F8</color>
+    <color name="text_secondary">#9AA3B2</color>
+    <color name="tile_cinegram">#3A1F1F</color>
+    <color name="tile_cinejoy">#1F3A2E</color>
+    <color name="tile_kartoons">#4A2C6A</color>
+    <color name="tile_movy">#2A2440</color>
+    <color name="tile_nightflix">#1A2744</color>
+    <color name="tile_redflix">#4A1A1A</color>
+    <color name="tile_tbcpl">#1B3A4B</color>
+    <string name="add_site">Add site</string>
+    <string name="add_site_bad_url">Enter a valid http(s) URL</string>
+    <string name="add_site_cancel">Cancel</string>
+    <string name="add_site_failed">Could not add site</string>
+    <string name="add_site_name_hint">Name (optional)</string>
+    <string name="add_site_ok">Add</string>
+    <string name="add_site_title">Add website</string>
+    <string name="add_site_url_hint">https://example.com</string>
+    <string name="app_name">Stream TV</string>
+    <string name="banner_open">OPEN</string>
+    <string name="blocked_popup">Popup blocked</string>
+    <string name="hint_remote">Banner ←→ · OK open · Hold OK remove site · Add site button</string>
+    <string name="home_subtitle">Pick a site · OK opens · Back exits</string>
+    <string name="home_title">Stream TV</string>
+    <string name="keyboard_hidden">Keyboard hidden · mouse mode</string>
+    <string name="keyboard_shown">Keyboard shown · type with remote</string>
+    <string name="loading">Loading…</string>
+    <string name="menu_back">Back page</string>
+    <string name="menu_forward">Forward</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_keyboard">Keyboard</string>
+    <string name="menu_reload">Reload</string>
+    <string name="remove_site">Remove site</string>
+    <string name="remove_site_confirm">Remove %1$s from Stream TV?</string>
+    <string name="site_cinegram">Cinegram</string>
+    <string name="site_cinegram_desc">Movies · ads blocked</string>
+    <string name="site_cinejoy">Cinejoy</string>
+    <string name="site_cinejoy_desc">Movies &amp; shows</string>
+    <string name="site_kartoons">Kartoons</string>
+    <string name="site_kartoons_desc">Cartoons &amp; anime</string>
+    <string name="site_movy">Movy</string>
+    <string name="site_movy_desc">Movies &amp; TV online</string>
+    <string name="site_nightflix">Nightflix</string>
+    <string name="site_nightflix_desc">Movies &amp; TV shows</string>
+    <string name="site_redflix">RedFlix</string>
+    <string name="site_redflix_desc">HD movies &amp; shows</string>
+    <string name="site_removed">Removed</string>
+    <string name="site_tbcpl">TBCPL</string>
+    <string name="site_tbcpl_desc">Streaming directory</string>
+    <style name="Theme.StreamBrowser" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>
