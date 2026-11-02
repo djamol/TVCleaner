@@ -216,57 +216,7 @@ Toshiba Fire TV · Vu · Stellamore and XGIMI projectors
 
 Your TV not here? The prompt discovers the bloat itself. Add your list afterwards and the next
 person with your model skips that step: [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Doing it by hand
-
-Everything the assistant does, you can run yourself. The tools need Python 3 and nothing else.
-
-```bash
-python3 -m venv tools/venv && tools/venv/bin/pip install -r tools/requirements.txt
-export TV_HOST=192.168.1.50                                   # your TV's IP address
-
-tools/venv/bin/python -I tools/tv.py --probe                 # model, Android version, firmware
-tools/venv/bin/python -I tools/tv.py 'pm list packages'      # one shell command on the TV
-tools/disable.sh examples/xiaomi-mi-tv-4a/debloat.txt        # apply a debloat list
-tools/restore.sh examples/xiaomi-mi-tv-4a/debloat.txt        # undo it, stock launcher back
-TV_HOST=192.168.1.50 launcher/build-and-install.sh           # build the launcher and make it Home
-tools/theme.sh themes/aurora                                 # push a theme; --reset removes it
-```
-
-| Tool | What it does |
-|---|---|
-| [`tools/tv.py`](tools/tv.py) | Pure-Python ADB client: shell, batch, push, pull. Works where the stock `adb` binary is blocked. |
-| [`tools/b64push.py`](tools/b64push.py) | Uploads large files such as APKs in base64 chunks and verifies the checksum. |
-| [`tools/disable.sh`](tools/disable.sh), [`restore.sh`](tools/restore.sh) | Apply or undo a debloat list, the undo from the state recorded before the change. |
-| [`tools/recovery.py`](tools/recovery.py) | Writes the record `disable.sh` needs to undo itself, and prints the restore batch. |
-| [`tools/theme.sh`](tools/theme.sh) | Push a folder from [`themes/`](themes/) to the launcher and restart Home. |
-| [`launcher/build-and-install.sh`](launcher/build-and-install.sh) | Builds a shrunk release (about 300 KB), installs it, switches Home, and rolls back if Home does not land on it. |
-
-Debloat list paths passed to `disable.sh` and `restore.sh` are relative to the directory you run
-from, so your own lists can live outside the repository. Absolute paths also work.
-
-Every script has a PowerShell twin next to it. On Windows with Android Studio installed nothing
-else is needed:
-
-```powershell
-python -m venv tools\venv; tools\venv\Scripts\python.exe -m pip install -r tools\requirements.txt
-powershell -ExecutionPolicy Bypass -File launcher\build-and-install.ps1 -TvHost 192.168.1.50
-powershell -ExecutionPolicy Bypass -File tools\disable.ps1 -TvHost 192.168.1.50 examples\xiaomi-mi-tv-4a\debloat.txt
-```
-
-The install scripts ask the TV which launcher owns Home and only disable one they recognise
-(`tvlauncher` or `launcherx`); pass `STOCK_LAUNCHER=<package>` (`-StockLauncher`) to override, or
-`none` to leave it alone.
-
-## The launcher
-
-A small native Android TV app (`com.gathin.tvhome`, about 300 KB installed) in plain Java with
-AndroidX RecyclerView and nothing heavier. Built for sets with 1 GB of RAM: no blur, no video, no
-network, no background services. It needs JDK 17 and Android SDK platform 34 to build; on macOS,
-`brew install openjdk@17 android-commandlinetools` and `sdkmanager "platforms;android-34" "build-tools;34.0.0"`. On Linux
-the install script finds `~/Android/Sdk` and the `java` on your PATH.
-
-- **Configure** in [`config.xml`](launcher/app/src/main/res/values/config.xml): dock order, hidden apps, the Live TV package, columns (tiles shrink from 5 up), rows under the dock, an optional VPN app for the network pill, and `reduced_motion` for TVs whose GPU cannot keep up.
+rows under the dock, an optional VPN app for the network pill, and `reduced_motion` for TVs whose GPU cannot keep up.
 - **On-TV launcher settings:** click Settings for the TV's system settings, or hold OK on Settings and choose Launcher settings to set 4, 5, 6 or 7 apps per row, turn animations on or off, and opt into advanced effects. The advanced option adds tile lift, icon zoom and smooth ambient-colour transitions; it may use more memory. Use Follow theme to clear on-TV choices. Pushing or resetting a theme also clears them.
 - **Change the default home:** Launcher settings and the optional Default-home tile (`show_home_settings_shortcut`) open Android's home picker. Choose the original launcher to stop using CleanYourTV as Home, or CleanYourTV to return. The original launcher must be enabled. If the install script disabled it, use the restore script below first. Some TVs provide no home picker.
 - **Themes** set the same keys plus a background colour and a wallpaper from a `config.json` pushed to the TV, no rebuild. Four ship in [`themes/`](themes/), documented there.
@@ -366,27 +316,3 @@ script for it is in [PR #84](https://github.com/Gathin23/cleanyourtv/pull/84).
 
 **Can I just download the APK?** Build it with the one-line script; it takes a minute and you
 control what goes on your TV. No prebuilt binaries.
-
-## Contributing
-
-The most useful contribution is your TV's debloat list, so the next person with that model does
-not have to rediscover it. Launcher improvements and sharper prompt wording are welcome too.
-[CONTRIBUTING.md](CONTRIBUTING.md) has the format and the testing we ask for. Built something on
-top, a launcher, a port, a theme? Add it to [SHOWCASE.md](SHOWCASE.md), where eleven projects already
-live: a webOS port for LG, a Stremio shelf, a Hisense restyle, Fire TV launchers, an AirPlay installer.
-
-The people whose work is in this repo:
-
-<a href="https://github.com/Gathin23/cleanyourtv/graphs/contributors"><img src="https://contrib.rocks/image?repo=Gathin23/cleanyourtv&columns=16" alt="Contributors"></a>
-
-<details>
-<summary><strong>Star history</strong></summary>
-
-<a href="https://star-history.com/#Gathin23/cleanyourtv&Date"><img src="https://api.star-history.com/svg?repos=Gathin23/cleanyourtv&type=Date" alt="Star history chart" width="640"></a>
-
-</details>
-
-## Licence
-
-MIT, see [`LICENSE`](LICENSE). The Outfit typeface is under the SIL Open Font License, see
-`launcher/FONT-LICENSE-OFL.txt`.
