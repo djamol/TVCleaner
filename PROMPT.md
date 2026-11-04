@@ -5,6 +5,8 @@ on the same Wi-Fi as the TV. Works on Android TV / Google TV sets (Xiaomi, TCL, 
 OnePlus, Realme, Nvidia Shield and most others). It will not work on Samsung Tizen, LG webOS or
 Fire TV. If you cloned this repo, mention that: the assistant can reuse `tools/` and `launcher/`
 instead of writing them from scratch, and only needs to edit `launcher/.../values/config.xml`.
+Companion apps in this repo (`tvinfo/`, `tvremap/`, `tvcam/`, `streambrowser/`, `tizentube/`) can be
+built or sideloaded the same way — see the "Companion apps" section below and README.md.
 
 Before you start, on the TV: Settings → Device Preferences → About → press OK on "Build" 7 times,
 then go back → Developer options → turn on USB debugging (and Network/ADB debugging if your TV
@@ -108,7 +110,46 @@ Verify
 - When done, give me a restore script, a build-and-install script, and a README that explains how to
   re-enable any app and how to change the dock order or the wallpaper.
 
+Companion apps (optional — ask me which to install)
+- This repo ships extra Android TV apps under their own folders. Prefer building from source with
+  `./gradlew assembleDebug` (or `assembleRelease` where a release APK already exists), then
+  `adb -s <tv>:5555 install -r <apk>`. If `adb install` hangs, push the APK and `pm install -r`.
+- Install only what I ask for. After install, open Apps on the TV (or `am start`) and screenshot.
+  On reinstall of `tvremap`, re-enable its accessibility service (see below) — installs can clear it.
+
+| Folder / APK | Package | What it is |
+|---|---|---|
+| `tvinfo/` | `com.patilweb.tvinfo` | Device report: model, Android/TV props, panel/screen, **RAM** (total/used/free) and **storage** capacity/used/free/available. APK: `tvinfo/app/build/outputs/apk/debug/app-debug.apk` |
+| `tvremap/` | `com.patilweb.tvremap` | Remap remote buttons: **single click / double click / hold** → open an app or Home/Settings/Inputs/Apps/Back. APK: `tvremap/app/build/outputs/apk/debug/app-debug.apk` |
+| `tvcam/` | `com.patilweb.tvcam` | CCTV / PiP camera app. Prefer release: `tvcam/app/build/outputs/apk/release/app-release.apk` |
+| `streambrowser/` | `com.patilweb.streambrowser` | Leanback web / stream browser. Prefer release if present, else debug under `streambrowser/app/build/outputs/apk/` |
+| `tizentube/` | `io.gh.reisxd.tizentube.cobalt` | YouTube (Cobalt) build. Prefer `tizentube/cobalt-arm-noads.apk` on `armeabi-v7a` boxes; use `cobalt-arm.apk` if needed. Large (~80 MB) |
+| External release (example) | `com.playz.tv` | AmolTV / PlayZ: download then install, e.g. `https://github.com/amolpatil2025/PlayZ-TV-Modded/releases/download/v1/AmolTV.apk` |
+
+TV Remap — enable listening (required or buttons do nothing)
+- Check root: `adb shell su 0 id`. If uid=0, open the app once so **RootKeyService** starts (foreground
+  listener via `getevent`). Root path works on boxes where AccessibilityService will not bind
+  (some Allwinner Softwinner firmwares).
+- If there is no `su`, enable the accessibility service and verify it is **bound** (not only listed):
+  ```
+  settings put secure enabled_accessibility_services com.patilweb.tvremap/.RemapService
+  settings put secure accessibility_enabled 1
+  ```
+  If another a11y service is already on, merge with a colon:
+  `existing.package/.Service:com.patilweb.tvremap/.RemapService`.
+  Confirm with `dumpsys accessibility` → Bound services must include TV Remap.
+- Capture flow: Add binding → press remote button → pick gesture → pick action. While capturing,
+  the service must **consume** app-shortcut keys (YouTube/Netflix/etc.) so stock handlers do not
+  steal focus and abort the binding. Re-assert key filter after launching apps (MiTV often drops it).
+- After `adb install -r` of tvremap, re-run the settings put lines above; binding state can reset.
+
+Multiple TVs
+- Connect each IP separately (`adb connect 192.168.x.x:5555`). If ping fails but ADB might still be
+  up, try `adb mdns services` — some boxes appear as `_adb._tcp` even when ICMP is blocked.
+- Install the same APKs on each TV I name; enable tvremap listening per device (root vs a11y differs).
+
 ---
 
 Expect to answer three or four checklist questions (which apps you use, which four go in the dock,
 whether to keep the voice assistant, Chromecast and firmware updates). Everything is reversible.
+Also expect optional asks for companion apps (tvinfo, tvremap, tvcam, streambrowser, tizentube, AmolTV).

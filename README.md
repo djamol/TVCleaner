@@ -90,6 +90,83 @@ Claude Code with an Anthropic plan, Codex or Gemini CLI work too.
 The assistant backs up, debloats, builds and installs the launcher, and checks each step with
 screenshots pulled from the TV. With this repo as context it takes about fifteen minutes.
 
+## Companion apps
+
+Optional sideload apps that live in this repo (separate from the CleanYourTV launcher). Build with
+Gradle, then install over ADB. Replace `TV` with `192.168.x.x:5555` (after `adb connect`).
+
+```bash
+TV=192.168.1.41:5555
+adb connect ${TV%:*}:5555
+
+# TV Info — device / RAM / storage report
+(cd tvinfo && ./gradlew assembleDebug)
+adb -s $TV install -r tvinfo/app/build/outputs/apk/debug/app-debug.apk
+
+# TV Remap — single / double / hold remote-button remapper
+(cd tvremap && ./gradlew assembleDebug)
+adb -s $TV install -r tvremap/app/build/outputs/apk/debug/app-debug.apk
+
+# TV Cam — camera / PiP (release APK if already built)
+adb -s $TV install -r tvcam/app/build/outputs/apk/release/app-release.apk
+
+# Stream Browser
+adb -s $TV install -r streambrowser/app/build/outputs/apk/release/app-release.apk
+# or: .../debug/app-debug.apk
+
+# TizenTube (Cobalt YouTube). Prefer no-ads build on armeabi-v7a boxes (~80 MB)
+adb -s $TV install -r tizentube/cobalt-arm-noads.apk
+
+# AmolTV / PlayZ (download once, then install)
+curl -L -o tmp_apk/AmolTV.apk \
+  https://github.com/amolpatil2025/PlayZ-TV-Modded/releases/download/v1/AmolTV.apk
+adb -s $TV install -r tmp_apk/AmolTV.apk
+```
+
+| App | Package | Notes |
+|---|---|---|
+| **TV Info** | `com.patilweb.tvinfo` | Model, Android/TV props, panel/screen, **RAM** total/used/free, **storage** capacity/used/free/available. |
+| **TV Remap** | `com.patilweb.tvremap` | Map one remote key to different actions for **single click**, **double click**, and **hold**. Must enable listening (below). |
+| **TV Cam** | `com.patilweb.tvcam` | CCTV / floating PiP camera. |
+| **Stream Browser** | `com.patilweb.streambrowser` | Leanback browser for streams. |
+| **TizenTube** | `io.gh.reisxd.tizentube.cobalt` | YouTube client (Cobalt). Use `cobalt-arm-noads.apk` when possible. |
+| **AmolTV** | `com.playz.tv` | PlayZ-TV mod from the GitHub release above. |
+
+### Enable TV Remap (required)
+
+Without this step the app installs but remote buttons do nothing.
+
+**Rooted box** (e.g. some Allwinner userdebug builds — `adb shell su 0 id` returns uid=0): open
+**TV Remap** once. It starts a foreground **root listener** (`getevent`). Accessibility often will
+not bind on those firmwares; root is the working path.
+
+**No root** (typical Xiaomi / Google TV):
+
+```bash
+# Enable (merge with a colon if another accessibility service is already on)
+adb -s $TV shell settings put secure enabled_accessibility_services \
+  com.patilweb.tvremap/.RemapService
+adb -s $TV shell settings put secure accessibility_enabled 1
+
+# Confirm Bound services lists TV Remap (not only Enabled)
+adb -s $TV shell dumpsys accessibility | grep -E 'Bound services|Enabled services'
+```
+
+Then in the app: **Add binding** → press the remote button → choose gesture → choose action.
+While capturing, app-shortcut keys (YouTube, Netflix, …) are blocked so the stock app cannot steal
+focus mid-setup. After every `adb install -r` of TV Remap, run the `settings put` lines again.
+
+### Several TVs on the LAN
+
+```bash
+adb connect 192.168.1.41:5555
+adb connect 192.168.1.38:5555
+adb devices -l
+# If ping fails but ADB might still work: adb mdns services
+```
+
+Install the same APKs per serial/`-s` address. Enable Remap **per device** (root vs accessibility).
+
 ## What you get
 
 - **A pitch-black home** with a dock of your four favourite apps in a rounded band, where Apple TV puts it.
