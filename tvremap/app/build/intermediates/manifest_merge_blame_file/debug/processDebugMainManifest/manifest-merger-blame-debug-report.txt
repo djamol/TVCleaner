@@ -1,0 +1,177 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.patilweb.tvremap"
+4    android:versionCode="6"
+5    android:versionName="2.2" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="29" />
+10
+11    <uses-feature
+11-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:4:5-87
+12        android:name="android.software.leanback"
+12-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:4:19-59
+13        android:required="false" />
+13-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:4:60-84
+14    <uses-feature
+14-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:5:5-90
+15        android:name="android.hardware.touchscreen"
+15-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:5:19-62
+16        android:required="false" />
+16-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:5:63-87
+17
+18    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+18-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:7:5-81
+18-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:7:22-78
+19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+19-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:8:5-77
+19-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:8:22-74
+20    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+20-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:9:5-77
+20-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:9:22-74
+21
+22    <queries>
+22-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:11:5-20:15
+23        <intent>
+23-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:12:9-15:18
+24            <action android:name="android.intent.action.MAIN" />
+24-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:13-65
+24-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:21-62
+25
+26            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+26-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:14:13-82
+26-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:14:23-79
+27        </intent>
+28        <intent>
+28-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:16:9-19:18
+29            <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:13-65
+29-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:21-62
+30
+31            <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:18:13-73
+31-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:18:23-70
+32        </intent>
+33    </queries>
+34
+35    <application
+35-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:22:5-84:19
+36        android:allowBackup="false"
+36-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:27:9-36
+37        android:banner="@drawable/banner"
+37-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:25:9-42
+38        android:debuggable="true"
+39        android:extractNativeLibs="false"
+40        android:icon="@drawable/ic_launcher"
+40-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:24:9-45
+41        android:label="@string/app_name"
+41-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:23:9-41
+42        android:theme="@style/Theme.TvRemap" >
+42-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:26:9-45
+43        <activity
+43-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:29:9-42:20
+44            android:name="com.patilweb.tvremap.MainActivity"
+44-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:30:13-41
+45            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|uiMode"
+45-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:33:13-90
+46            android:exported="true"
+46-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:31:13-36
+47            android:screenOrientation="landscape" >
+47-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:32:13-50
+48            <intent-filter>
+48-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:34:13-37:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:13-65
+49-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:21-62
+50
+51                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+51-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:14:13-82
+51-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:14:23-79
+52            </intent-filter>
+53            <intent-filter>
+53-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:38:13-41:29
+54                <action android:name="android.intent.action.MAIN" />
+54-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:13-65
+54-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:13:21-62
+55
+56                <category android:name="android.intent.category.LAUNCHER" />
+56-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:18:13-73
+56-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:18:23-70
+57            </intent-filter>
+58        </activity>
+59        <activity
+59-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:44:9-47:53
+60            android:name="com.patilweb.tvremap.CaptureActivity"
+60-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:45:13-44
+61            android:exported="false"
+61-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:46:13-37
+62            android:screenOrientation="landscape" />
+62-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:47:13-50
+63        <activity
+63-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:49:9-52:53
+64            android:name="com.patilweb.tvremap.PickGestureActivity"
+64-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:50:13-48
+65            android:exported="false"
+65-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:51:13-37
+66            android:screenOrientation="landscape" />
+66-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:52:13-50
+67        <activity
+67-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:54:9-57:53
+68            android:name="com.patilweb.tvremap.PickActionActivity"
+68-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:55:13-47
+69            android:exported="false"
+69-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:56:13-37
+70            android:screenOrientation="landscape" />
+70-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:57:13-50
+71
+72        <service
+72-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:59:9-70:19
+73            android:name="com.patilweb.tvremap.RemapService"
+73-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:60:13-41
+74            android:exported="true"
+74-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:61:13-36
+75            android:label="@string/app_name"
+75-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:62:13-45
+76            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+76-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:63:13-79
+77            <intent-filter>
+77-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:64:13-66:29
+78                <action android:name="android.accessibilityservice.AccessibilityService" />
+78-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:65:17-92
+78-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:65:25-89
+79            </intent-filter>
+80
+81            <meta-data
+81-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:67:13-69:57
+82                android:name="android.accessibilityservice"
+82-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:68:17-60
+83                android:resource="@xml/remap_service" />
+83-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:69:17-54
+84        </service>
+85        <service
+85-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:72:9-74:40
+86            android:name="com.patilweb.tvremap.RootKeyService"
+86-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:73:13-43
+87            android:exported="false" />
+87-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:74:13-37
+88
+89        <receiver
+89-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:76:9-83:20
+90            android:name="com.patilweb.tvremap.BootReceiver"
+90-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:77:13-41
+91            android:exported="true" >
+91-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:78:13-36
+92            <intent-filter>
+92-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:79:13-82:29
+93                <action android:name="android.intent.action.BOOT_COMPLETED" />
+93-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:80:17-79
+93-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:80:25-76
+94                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+94-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:81:17-82
+94-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:81:25-79
+95            </intent-filter>
+96        </receiver>
+97    </application>
+98
+99</manifest>

@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.patilweb.tvremap.app-mergeDebugResources-2:/values/values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\Downloads\\cleanyourtv\\tvremap\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "57,104",
+                        "endColumns": "45,99",
+                        "endOffsets": "98,199"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,101",
+                        "endColumns": "45,99",
+                        "endOffsets": "96,196"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\amolp\\Downloads\\cleanyourtv\\tvremap\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "530"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "201",
+                        "endLines": "11",
+                        "endColumns": "12",
+                        "endOffsets": "667"
+                    }
+                }
+            ]
+        }
+    ]
+}

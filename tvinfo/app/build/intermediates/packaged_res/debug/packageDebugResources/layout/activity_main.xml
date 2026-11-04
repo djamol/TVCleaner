@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="16dp"
-        android:text="Device · Android TV · Screen"
+        android:text="Device · RAM · Storage · Screen"
         android:textColor="#FF8FA3BF"
         android:textSize="16sp" />
 

@@ -1,0 +1,26 @@
+R_DEF: Internal format may change without notice
+local
+drawable banner
+drawable ic_launcher
+drawable row_focus
+id actionList
+id bindingList
+id btnAdd
+id btnClear
+id btnEnable
+id captureDetail
+id captureHint
+id emptyHint
+id pickSubtitle
+id pickTitle
+id rowSubtitle
+id rowTitle
+id serviceStatus
+layout activity_capture
+layout activity_main
+layout activity_pick_action
+layout item_row
+string app_name
+string service_description
+style Theme.TvRemap
+xml remap_service

@@ -1,11 +1,14 @@
 package com.patilweb.tvinfo;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.UiModeManager;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StatFs;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -14,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.util.Locale;
 
@@ -127,16 +131,144 @@ public class MainActivity extends Activity {
         line(sb, "Smallest width (dp)", String.valueOf(cfg.smallestScreenWidthDp));
         line(sb, "Screen layout size", screenSizeLabel(cfg));
 
-        sb.append("\n=== MEMORY / SYSTEM ===\n");
+        sb.append("\n=== RAM ===\n");
+        appendRam(sb);
         Runtime rt = Runtime.getRuntime();
-        line(sb, "App max heap", (rt.maxMemory() / (1024 * 1024)) + " MB");
-        line(sb, "App used heap", ((rt.totalMemory() - rt.freeMemory()) / (1024 * 1024)) + " MB");
+        line(sb, "App max heap", formatBytes(rt.maxMemory()));
+        line(sb, "App used heap", formatBytes(rt.totalMemory() - rt.freeMemory()));
         line(sb, "VM heapsize prop", prop("dalvik.vm.heapsize"));
+
+        sb.append("\n=== STORAGE ===\n");
+        appendStorage(sb, "Internal (/data)", Environment.getDataDirectory());
+        File root = Environment.getRootDirectory();
+        appendStorage(sb, "System (/system)", root);
+        File ext = Environment.getExternalStorageDirectory();
+        if (ext != null) {
+            appendStorage(sb, "Shared storage", ext);
+        }
+        // Secondary volumes (USB / adopted) when present
+        if (Build.VERSION.SDK_INT >= 21) {
+            File[] dirs = getExternalFilesDirs(null);
+            if (dirs != null) {
+                for (int i = 0; i < dirs.length; i++) {
+                    File d = dirs[i];
+                    if (d == null) continue;
+                    File vol = d;
+                    // Walk up to volume root-ish path for StatFs
+                    while (vol.getParentFile() != null
+                            && vol.getParentFile().canRead()
+                            && !vol.equals(ext)) {
+                        File parent = vol.getParentFile();
+                        if (parent.getAbsolutePath().equals("/storage")
+                                || parent.getAbsolutePath().equals("/mnt")) {
+                            break;
+                        }
+                        vol = parent;
+                    }
+                    if (ext != null && vol.getAbsolutePath().equals(ext.getAbsolutePath())) continue;
+                    appendStorage(sb, "Volume " + i + " (" + vol.getAbsolutePath() + ")", vol);
+                }
+            }
+        }
+
+        sb.append("\n=== SYSTEM ===\n");
         line(sb, "Platform", prop("ro.board.platform"));
         line(sb, "OEM key", prop("ro.oem.key1"));
+        line(sb, "CPU ABI", Build.SUPPORTED_ABIS.length > 0 ? Build.SUPPORTED_ABIS[0] : Build.CPU_ABI);
 
         sb.append("\nBack = exit · D-pad Up/Down = scroll\n");
         return sb.toString();
+    }
+
+    private void appendRam(StringBuilder sb) {
+        ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        if (am != null) {
+            am.getMemoryInfo(mi);
+            long total = mi.totalMem;
+            long avail = mi.availMem;
+            long used = Math.max(0L, total - avail);
+            line(sb, "Total RAM", formatBytes(total));
+            line(sb, "Used RAM", formatBytes(used) + "  (" + pct(used, total) + ")");
+            line(sb, "Free / available", formatBytes(avail) + "  (" + pct(avail, total) + ")");
+            line(sb, "Low-memory threshold", formatBytes(mi.threshold));
+            line(sb, "Low memory now", String.valueOf(mi.lowMemory));
+            line(sb, "Large heap", String.valueOf(am.getMemoryClass()) + " MB class"
+                    + " / large " + am.getLargeMemoryClass() + " MB");
+        } else {
+            line(sb, "Total RAM", "—");
+        }
+        // MemTotal from /proc/meminfo as a cross-check
+        String memTotal = readProcMem("MemTotal");
+        String memAvail = readProcMem("MemAvailable");
+        String memFree = readProcMem("MemFree");
+        if (!memTotal.isEmpty()) line(sb, "MemTotal (/proc)", memTotal);
+        if (!memAvail.isEmpty()) line(sb, "MemAvailable (/proc)", memAvail);
+        if (!memFree.isEmpty()) line(sb, "MemFree (/proc)", memFree);
+    }
+
+    private static void appendStorage(StringBuilder sb, String label, File path) {
+        if (path == null || !path.exists()) {
+            line(sb, label, "—");
+            return;
+        }
+        try {
+            StatFs stat = new StatFs(path.getAbsolutePath());
+            long block = stat.getBlockSizeLong();
+            long total = block * stat.getBlockCountLong();
+            long avail = block * stat.getAvailableBlocksLong();
+            long free = block * stat.getFreeBlocksLong();
+            long used = Math.max(0L, total - free);
+            sb.append(label).append('\n');
+            line(sb, "  Path", path.getAbsolutePath());
+            line(sb, "  Capacity", formatBytes(total));
+            line(sb, "  Used", formatBytes(used) + "  (" + pct(used, total) + ")");
+            line(sb, "  Free", formatBytes(free) + "  (" + pct(free, total) + ")");
+            line(sb, "  Available", formatBytes(avail) + "  (" + pct(avail, total) + ")");
+        } catch (Exception e) {
+            line(sb, label, "error: " + e.getMessage());
+        }
+    }
+
+    private static String readProcMem(String key) {
+        try {
+            BufferedReader r = new BufferedReader(new InputStreamReader(
+                    new java.io.FileInputStream("/proc/meminfo")));
+            String line;
+            while ((line = r.readLine()) != null) {
+                if (line.startsWith(key)) {
+                    r.close();
+                    // e.g. MemTotal:       948232 kB
+                    String[] parts = line.split("\\s+");
+                    if (parts.length >= 2) {
+                        long kb = Long.parseLong(parts[1]);
+                        return formatBytes(kb * 1024L);
+                    }
+                    return line;
+                }
+            }
+            r.close();
+        } catch (Exception ignored) { }
+        return "";
+    }
+
+    private static String formatBytes(long bytes) {
+        if (bytes < 0) return "—";
+        double b = bytes;
+        if (b < 1024) return bytes + " B";
+        b /= 1024;
+        if (b < 1024) return String.format(Locale.US, "%.0f KB", b);
+        b /= 1024;
+        if (b < 1024) return String.format(Locale.US, "%.1f MB", b);
+        b /= 1024;
+        if (b < 1024) return String.format(Locale.US, "%.2f GB", b);
+        b /= 1024;
+        return String.format(Locale.US, "%.2f TB", b);
+    }
+
+    private static String pct(long part, long total) {
+        if (total <= 0) return "—";
+        return String.format(Locale.US, "%.0f%%", 100.0 * part / total);
     }
 
     private String describeUiMode() {
