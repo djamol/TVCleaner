@@ -11,6 +11,7 @@
     <color name="tile_cinejoy">#1F3A2E</color>
     <color name="tile_dictation">#2A3050</color>
     <color name="tile_kartoons">#4A2C6A</color>
+    <color name="tile_kick">#53FC18</color>
     <color name="tile_movy">#2A2440</color>
     <color name="tile_nightflix">#1A2744</color>
     <color name="tile_redflix">#4A1A1A</color>
@@ -59,6 +60,8 @@
     <string name="site_dictation_desc">Voice typing online</string>
     <string name="site_kartoons">Kartoons</string>
     <string name="site_kartoons_desc">Cartoons &amp; anime</string>
+    <string name="site_kick">Kick</string>
+    <string name="site_kick_desc">Live streams</string>
     <string name="site_moved">Moved</string>
     <string name="site_movy">Movy</string>
     <string name="site_movy_desc">Movies &amp; TV online</string>

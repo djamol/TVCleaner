@@ -47,7 +47,7 @@
 
         <activity
             android:name=".BrowserActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden|uiMode"
             android:windowSoftInputMode="stateHidden|adjustResize"

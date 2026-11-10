@@ -13,96 +13,124 @@ import java.util.Set;
 /**
  * Blocks common ad / tracker hosts and strips popup / overlay junk via injected JS.
  * Cinegram gets the aggressive path (extra hosts + DOM cleanup).
+ * <p>
+ * Streaming platforms (Kick, Twitch, YouTube, …) are protected: no DOM scrubbing and
+ * only hard ad-network blocking, so players / Pusher / CSS-in-JS keep working.
  */
 final class AdBlocker {
 
     private static final WebResourceResponse EMPTY =
             new WebResourceResponse("text/plain", "utf-8", new ByteArrayInputStream(new byte[0]));
 
+    private static final Set<String> HARD_AD_HOSTS = new HashSet<>();
     private static final Set<String> BLOCKED_HOSTS = new HashSet<>();
     private static final Set<String> BLOCKED_PATH_HINTS = new HashSet<>();
+    private static final Set<String> PROTECTED_HOSTS = new HashSet<>();
 
     static {
-        String[] hosts = {
-                // major networks
+        // Always blocked, even on Kick/Twitch.
+        String[] hard = {
                 "doubleclick.net", "googleadservices.com", "googlesyndication.com",
-                "googletagmanager.com", "googletagservices.com", "google-analytics.com",
                 "pagead2.googlesyndication.com", "adservice.google.com",
-                "facebook.net", "connect.facebook.net", "scorecardresearch.com",
-                "outbrain.com", "taboola.com", "criteo.com", "criteo.net",
-                "adnxs.com", "adsrvr.org", "adform.net", "adsymptotic.com",
-                "advertising.com", "adcolony.com", "admob.com", "mopub.com",
-                "pubmatic.com", "rubiconproject.com", "openx.net", "casalemedia.com",
-                "smartadserver.com", "yieldmo.com", "media.net", "quantserve.com",
-                "exoclick.com", "exosrv.com", "juicyads.com", "popads.net",
-                "popcash.net", "propellerads.com", "propellerclick.com",
+                "googletagservices.com",
+                "amazon-adsystem.com", "aaxads.com",
+                "exoclick.com", "exosrv.com", "juicyads.com", "popads.net", "popcash.net",
+                "propellerads.com", "propellerclick.com", "popunderjs.com",
+                "onclickads.net", "onclickmega.com",
                 "trafficjunky.net", "trafficfactory.biz", "adsterra.com",
                 "hilltopads.com", "clickadu.com", "mgid.com", "revcontent.com",
                 "adskeeper.com", "bidvertiser.com", "adcash.com",
-                // pop / redirect / interstitial
-                "popunderjs.com", "onclickads.net", "onclickmega.com",
-                "adexchangegate.com", "adexchangecloud.com", "adexchangescript.com",
                 "tsyndicate.com", "trafficstars.com", "ero-advertising.com",
-                "adserver.adtechus.com", "adtech.com", "advertising.com",
-                "serving-sys.com", "moatads.com", "amazon-adsystem.com",
-                "aaxads.com", "ads.yahoo.com", "ads.twitter.com",
-                "static.ads-twitter.com", "ads-twitter.com",
-                // video / player ads
-                "imasdk.googleapis.com", "fwmrm.net", "stickyadstv.com",
-                "spotxchange.com", "spotx.tv", "teads.tv",
-                // analytics / fingerprint
+                "imasdk.googleapis.com", "moatads.com", "fwmrm.net",
+                "spotxchange.com", "spotx.tv", "teads.tv", "stickyadstv.com",
+                "outbrain.com", "taboola.com", "criteo.com", "criteo.net",
+                "adnxs.com", "adsrvr.org", "adform.net", "pubmatic.com",
+                "rubiconproject.com", "openx.net", "casalemedia.com",
+                "smartadserver.com", "yieldmo.com", "media.net",
+                "ads.yahoo.com", "ads.twitter.com", "static.ads-twitter.com", "ads-twitter.com",
+                "ads.msn.com", "bat.bing.com",
+                "yandexadexchange.net", "mc.yandex.ru",
+                "stripchat.com", "livejasmin.com", "chaturbate.com",
+                "contentabc.com", "adtng.com", "realsrv.com", "natsdk.com",
+                "ad-maven.com", "admaven.com", "adbro.me", "admicro.vn",
+        };
+        for (String h : hard) HARD_AD_HOSTS.add(h.toLowerCase(Locale.US));
+
+        // Extra hosts for junk stream sites — NOT applied on protected platforms.
+        String[] soft = {
+                "googletagmanager.com", "google-analytics.com",
+                "facebook.net", "connect.facebook.net", "scorecardresearch.com",
+                "adsymptotic.com", "advertising.com", "adcolony.com", "admob.com", "mopub.com",
+                "quantserve.com", "adserver.adtechus.com", "adtech.com", "serving-sys.com",
                 "hotjar.com", "clarity.ms", "fullstory.com", "mixpanel.com",
                 "segment.io", "segment.com", "amplitude.com",
-                // cinegram-heavy / common stream-site junk
                 "histats.com", "statcounter.com", "addthis.com", "sharethis.com",
-                "disqus.com", "zergnet.com", "contentabc.com", "adtng.com",
-                "stripchat.com", "livejasmin.com", "chaturbate.com",
-                "exoclick.com", "realsrv.com", "natsdk.com", "pushanotify.com",
-                "pushengage.com", "onesignal.com", "pusher.com",
+                "disqus.com", "zergnet.com",
+                "pushanotify.com", "pushengage.com", "onesignal.com",
+                // NOTE: do NOT block pusher.com — Kick chat / realtime needs it.
                 "browser-update.org", "cookiebot.com", "cookielaw.org",
                 "onetrust.com", "trustarc.com",
-                // cloudflare challenge helpers sometimes wrap ads — leave cloudflare.com alone
                 "affiliatefuture.com", "clickbank.net", "digidip.net",
-                "admicro.vn", "adbro.me", "ad-maven.com", "admaven.com",
-                "yandex.ru", "yandexadexchange.net", "mc.yandex.ru",
-                "ads.msn.com", "bing.com", "bat.bing.com"
+                "yandex.ru",
+                // bing.com blocked wholesale broke random embeds — keep only bat.bing.com above
         };
-        for (String h : hosts) {
-            BLOCKED_HOSTS.add(h.toLowerCase(Locale.US));
-        }
+        BLOCKED_HOSTS.addAll(HARD_AD_HOSTS);
+        for (String h : soft) BLOCKED_HOSTS.add(h.toLowerCase(Locale.US));
 
+        // Path hints: avoid ultra-broad "/ad/" which matched legitimate URLs.
         String[] hints = {
-                "/ads/", "/ad/", "/advert", "adsense", "adserver", "popunder",
-                "pop.js", "popup.js", "banner.js", "prebid", "gpt.js",
+                "/ads/", "/advert", "/adsense", "/adserver", "popunder",
+                "adsense", "adserver", "pop.js", "popup.js", "prebid",
                 "doubleclick", "pagead", "adsbygoogle", "taboola", "outbrain",
                 "propeller", "exoclick", "juicyads", "popads", "popcash",
-                "push-notification", "onesignal", "fingerprint", "fp.js"
+                "push-notification", "onesignal", "fingerprint2", "fingerprintjs"
         };
-        for (String h : hints) {
-            BLOCKED_PATH_HINTS.add(h.toLowerCase(Locale.US));
-        }
+        for (String h : hints) BLOCKED_PATH_HINTS.add(h.toLowerCase(Locale.US));
+
+        String[] protectedHosts = {
+                "kick.com", "twitch.tv", "youtube.com", "youtu.be", "youtube-nocookie.com",
+                "googlevideo.com", "ytimg.com", "netflix.com", "nflxvideo.net",
+                "disneyplus.com", "hulu.com", "spotify.com", "soundcloud.com",
+                "vimeo.com", "dailymotion.com", "rumble.com",
+                "mux.com", "cloudflarestream.com",
+        };
+        for (String h : protectedHosts) PROTECTED_HOSTS.add(h.toLowerCase(Locale.US));
     }
 
     private AdBlocker() {}
 
+    static boolean isProtectedPage(String pageUrl) {
+        String host = hostOf(pageUrl);
+        return host != null && isProtectedHost(host);
+    }
+
     static boolean shouldBlock(String url) {
+        return shouldBlock(url, null);
+    }
+
+    static boolean shouldBlock(String url, String pageUrl) {
         if (TextUtils.isEmpty(url)) return false;
         String lower = url.toLowerCase(Locale.US);
-        Uri uri;
-        try {
-            uri = Uri.parse(url);
-        } catch (Exception e) {
-            return false;
-        }
-        String host = uri.getHost();
+        String host = hostOf(url);
         if (host == null) return false;
-        host = host.toLowerCase(Locale.US);
-        if (host.startsWith("www.")) host = host.substring(4);
 
-        if (isBlockedHost(host)) return true;
+        boolean protectedPage = isProtectedPage(pageUrl);
+        // Never block the streaming site's own assets.
+        if (isProtectedHost(host)) return false;
 
-        String path = uri.getPath();
-        String query = uri.getQuery();
+        if (protectedPage) {
+            return isHardAdHost(host);
+        }
+
+        if (isBlockedHost(host, BLOCKED_HOSTS)) return true;
+
+        String path = null;
+        String query = null;
+        try {
+            Uri uri = Uri.parse(url);
+            path = uri.getPath();
+            query = uri.getQuery();
+        } catch (Exception ignored) { }
         String hay = (path == null ? "" : path) + "?" + (query == null ? "" : query);
         hay = hay.toLowerCase(Locale.US);
         for (String hint : BLOCKED_PATH_HINTS) {
@@ -111,71 +139,97 @@ final class AdBlocker {
         return false;
     }
 
-    static boolean shouldBlock(WebResourceRequest request) {
+    static boolean shouldBlock(WebResourceRequest request, String pageUrl) {
         if (request == null || request.getUrl() == null) return false;
-        return shouldBlock(request.getUrl().toString());
+        return shouldBlock(request.getUrl().toString(), pageUrl);
     }
 
     static WebResourceResponse emptyResponse() {
         return EMPTY;
     }
 
-    private static boolean isBlockedHost(String host) {
-        if (BLOCKED_HOSTS.contains(host)) return true;
-        for (String blocked : BLOCKED_HOSTS) {
+    private static boolean isHardAdHost(String host) {
+        return isBlockedHost(host, HARD_AD_HOSTS);
+    }
+
+    private static boolean isBlockedHost(String host, Set<String> set) {
+        if (set.contains(host)) return true;
+        for (String blocked : set) {
             if (host.endsWith("." + blocked)) return true;
         }
         return false;
     }
 
-    /** JS that kills popups, overlays, fixed banners, and auto-redirect traps. */
-    static String cleanupScript(boolean aggressive) {
+    private static boolean isProtectedHost(String host) {
+        if (PROTECTED_HOSTS.contains(host)) return true;
+        for (String p : PROTECTED_HOSTS) {
+            if (host.endsWith("." + p)) return true;
+        }
+        return false;
+    }
+
+    private static String hostOf(String url) {
+        if (TextUtils.isEmpty(url)) return null;
+        try {
+            String host = Uri.parse(url).getHost();
+            if (host == null) return null;
+            host = host.toLowerCase(Locale.US);
+            if (host.startsWith("www.")) host = host.substring(4);
+            return host;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * JS cleanup. On Kick/Twitch/etc. only disable popup spam — DOM scrubbing
+     * destroys React overlays and leaves an unstyled broken page.
+     */
+    static String cleanupScript(boolean aggressive, String pageUrl) {
+        if (isProtectedPage(pageUrl)) {
+            return "(function(){try{"
+                    + "window.open=function(){return null;};"
+                    + "}catch(e){}})();";
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append("(function(){try{");
-        // Kill window.open / alert / confirm spam
         sb.append("window.open=function(){return null;};");
         sb.append("window.alert=function(){};window.confirm=function(){return true;};");
         sb.append("window.prompt=function(){return null;};");
-        // Block notification / push permission spam
         sb.append("if(window.Notification){try{Notification.requestPermission=function(){return Promise.resolve('denied');};}catch(e){}}");
-        // Stop history.replaceState redirect loops used by some interstitial scripts
         sb.append("document.addEventListener('click',function(e){");
         sb.append("var t=e.target;while(t&&t!==document){");
         sb.append("if(t.tagName==='A'&&t.target==='_blank'){t.target='_self';}");
         sb.append("t=t.parentElement;}},true);");
 
-        // Remove known ad DOM nodes
         sb.append("function scrub(){");
         sb.append("var sels=[");
-        sb.append("'iframe[src*=\"doubleclick\"]','iframe[src*=\"ads\"]','iframe[id*=\"google_ads\"]',");
-        sb.append("'iframe[src*=\"pop\"]','iframe[src*=\"banner\"]','iframe[src*=\"exoclick\"]',");
+        sb.append("'iframe[src*=\"doubleclick\"]','iframe[src*=\"googlesyndication\"]',");
+        sb.append("'iframe[id*=\"google_ads\"]','iframe[src*=\"exoclick\"]',");
         sb.append("'iframe[src*=\"juicy\"]','iframe[src*=\"propeller\"]',");
-        sb.append("'[id*=\"ad-\"],[id*=\"ads-\"],[id^=\"ad_\"],[class*=\"ad-banner\"]',");
-        sb.append("'[class*=\"adsbox\"],[class*=\"ad-container\"],[class*=\"adcontainer\"]',");
-        sb.append("'[class*=\"popup\"],[class*=\"pop-up\"],[id*=\"popup\"],[id*=\"overlay\"]',");
-        sb.append("'[class*=\"overlay\"],[class*=\"modal-ad\"],[class*=\"interstitial\"]',");
-        sb.append("'div[style*=\"z-index: 999\"],div[style*=\"z-index:999\"],div[style*=\"z-index: 214748\"]',");
-        sb.append("'a[href*=\"pop\"]','ins.adsbygoogle','.adsbygoogle'");
+        sb.append("'ins.adsbygoogle','.adsbygoogle'");
         if (aggressive) {
-            sb.append(",'[onclick*=\"window.open\"]','[onclick*=\"location\"]',");
-            sb.append("'div[style*=\"position: fixed\"][style*=\"inset\"]',");
-            sb.append("'div[style*=\"position:fixed\"][style*=\"width:100%\"]',");
-            sb.append("'div[style*=\"position: fixed\"][style*=\"width: 100%\"]'");
+            sb.append(",'iframe[src*=\"popads\"]','iframe[src*=\"popcash\"]'");
         }
         sb.append("];");
         sb.append("sels.forEach(function(s){try{document.querySelectorAll(s).forEach(function(n){");
-        // Don't remove video players / main content wrappers by mistake when fixed fullscreen
         sb.append("if(n.closest&&(n.closest('video')||n.closest('.jwplayer')||n.closest('#player')||n.closest('.plyr')||n.tagName==='VIDEO'))return;");
         sb.append("n.remove();});}catch(e){}});");
-        // Unlock scroll / body overflow locked by overlays
         sb.append("try{document.documentElement.style.overflow='auto';document.body.style.overflow='auto';");
         sb.append("document.body.style.pointerEvents='auto';}catch(e){}");
         sb.append("}");
         sb.append("scrub();");
         sb.append("var mo=new MutationObserver(function(){scrub();});");
         sb.append("mo.observe(document.documentElement,{childList:true,subtree:true});");
-        sb.append("setInterval(scrub,").append(aggressive ? "800" : "1500").append(");");
+        sb.append("setInterval(scrub,").append(aggressive ? "800" : "2000").append(");");
         sb.append("}catch(e){}})();");
         return sb.toString();
+    }
+
+    /** @deprecated use {@link #cleanupScript(boolean, String)} */
+    @Deprecated
+    static String cleanupScript(boolean aggressive) {
+        return cleanupScript(aggressive, null);
     }
 }

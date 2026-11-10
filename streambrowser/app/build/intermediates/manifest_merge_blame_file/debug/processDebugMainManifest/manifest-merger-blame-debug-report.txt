@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.patilweb.streambrowser"
-4    android:versionCode="3"
-5    android:versionName="1.2" >
+4    android:versionCode="4"
+5    android:versionName="1.3" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
@@ -120,8 +120,8 @@
 67-->C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:49:13-44
 68            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|uiMode"
 68-->C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:52:13-90
-69            android:exported="false"
-69-->C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:50:13-37
+69            android:exported="true"
+69-->C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:50:13-36
 70            android:hardwareAccelerated="true"
 70-->C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:54:13-47
 71            android:screenOrientation="landscape"

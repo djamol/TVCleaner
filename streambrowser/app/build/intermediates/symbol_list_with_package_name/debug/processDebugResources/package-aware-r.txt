@@ -26,6 +26,7 @@ color tile_cinegram
 color tile_cinejoy
 color tile_dictation
 color tile_kartoons
+color tile_kick
 color tile_movy
 color tile_nightflix
 color tile_redflix
@@ -228,6 +229,8 @@ string site_dictation
 string site_dictation_desc
 string site_kartoons
 string site_kartoons_desc
+string site_kick
+string site_kick_desc
 string site_moved
 string site_movy
 string site_movy_desc

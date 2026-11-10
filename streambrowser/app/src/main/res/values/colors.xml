@@ -15,5 +15,6 @@
     <color name="tile_redflix">#4A1A1A</color>
     <color name="tile_speech">#0E3A4A</color>
     <color name="tile_dictation">#2A3050</color>
+    <color name="tile_kick">#53FC18</color>
     <color name="progress">#3DDC97</color>
 </resources>

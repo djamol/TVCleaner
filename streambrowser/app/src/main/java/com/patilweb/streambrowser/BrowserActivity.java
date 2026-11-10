@@ -63,6 +63,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     private boolean keyboardVisible;
     private boolean syncingBridge;
     private boolean voiceListening;
+    private String currentPageUrl = "";
     private final Handler handler = new Handler(Looper.getMainLooper());
 
     /** Unmute HTML5 / common players that start muted for autoplay policies. */
@@ -208,6 +209,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
             finish();
             return;
         }
+        currentPageUrl = url;
 
         webView = findViewById(R.id.webview);
         cursor = findViewById(R.id.tv_cursor);
@@ -386,9 +388,10 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         s.setAllowFileAccess(false);
         s.setAllowContentAccess(false);
         s.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        // Recent Chrome desktop UA — Kick/Twitch gate older WebView UAs and serve broken shells.
         s.setUserAgentString(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                        + "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+                        + "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36");
 
         CookieManager.getInstance().setAcceptCookie(true);
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
@@ -406,7 +409,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 if (request == null || request.getUrl() == null) return false;
                 String u = request.getUrl().toString();
-                if (AdBlocker.shouldBlock(u)) return true;
+                if (AdBlocker.shouldBlock(u, currentPageUrl)) return true;
                 String scheme = request.getUrl().getScheme();
                 if (scheme != null && !scheme.equals("http") && !scheme.equals("https")) {
                     return true;
@@ -416,12 +419,13 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
 
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                if (AdBlocker.shouldBlock(request)) return AdBlocker.emptyResponse();
+                if (AdBlocker.shouldBlock(request, currentPageUrl)) return AdBlocker.emptyResponse();
                 return super.shouldInterceptRequest(view, request);
             }
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                if (url != null) currentPageUrl = url;
                 progress.setVisibility(View.VISIBLE);
                 progress.setProgress(5);
                 if (keyboardVisible) hideKeyboard();
@@ -429,6 +433,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
 
             @Override
             public void onPageFinished(WebView view, String url) {
+                if (url != null) currentPageUrl = url;
                 progress.setVisibility(View.GONE);
                 injectPageScripts();
                 if (!keyboardVisible) restoreMouseMode();
@@ -491,9 +496,12 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     }
 
     private void injectPageScripts() {
-        webView.evaluateJavascript(AdBlocker.cleanupScript(aggressive), null);
+        webView.evaluateJavascript(AdBlocker.cleanupScript(aggressive, currentPageUrl), null);
         webView.evaluateJavascript(SPEECH_POLYFILL_JS, null);
-        webView.evaluateJavascript(AUTO_FULLSCREEN_JS, null);
+        // Auto-fullscreen breaks Kick/Twitch React players — only on junk stream sites.
+        if (!AdBlocker.isProtectedPage(currentPageUrl)) {
+            webView.evaluateJavascript(AUTO_FULLSCREEN_JS, null);
+        }
         webView.evaluateJavascript(FOCUS_HOOK_JS, null);
         webView.evaluateJavascript(UNMUTE_JS, null);
         if (WebViewFeature.isFeatureSupported(WebViewFeature.MUTE_AUDIO)) {

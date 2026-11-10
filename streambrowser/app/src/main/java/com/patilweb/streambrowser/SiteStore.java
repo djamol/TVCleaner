@@ -45,11 +45,14 @@ final class SiteStore {
                 ctx.getColor(R.color.tile_redflix),
                 ctx.getColor(R.color.tile_speech),
                 ctx.getColor(R.color.tile_dictation),
+                ctx.getColor(R.color.tile_kick),
         };
     }
 
     List<Site> defaults() {
         List<Site> list = new ArrayList<>();
+        list.add(new Site("kick", ctx.getString(R.string.site_kick), ctx.getString(R.string.site_kick_desc),
+                "https://kick.com/", accents[9], false, false));
         list.add(new Site("tbcpl", ctx.getString(R.string.site_tbcpl), ctx.getString(R.string.site_tbcpl_desc),
                 "https://tbcpl.lol/", accents[0], false, false));
         list.add(new Site("kartoons", ctx.getString(R.string.site_kartoons), ctx.getString(R.string.site_kartoons_desc),

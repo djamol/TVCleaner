@@ -126,7 +126,7 @@ ADDED from C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\Andro
 	android:windowSoftInputMode
 		ADDED from C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:53:13-67
 	android:exported
-		ADDED from C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:50:13-37
+		ADDED from C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:50:13-36
 	android:configChanges
 		ADDED from C:\Users\amolp\Downloads\cleanyourtv\streambrowser\app\src\main\AndroidManifest.xml:52:13-90
 	android:name
