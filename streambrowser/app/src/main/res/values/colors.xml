@@ -13,5 +13,7 @@
     <color name="tile_cinejoy">#1F3A2E</color>
     <color name="tile_movy">#2A2440</color>
     <color name="tile_redflix">#4A1A1A</color>
+    <color name="tile_speech">#0E3A4A</color>
+    <color name="tile_dictation">#2A3050</color>
     <color name="progress">#3DDC97</color>
 </resources>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-pt-rPT_values-pt-rPT.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-zh-rTW_values-zh-rTW.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,82 +16,7 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-en-rGB_values-en-rGB.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rGB\\values-en-rGB.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-hi_values-hi.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hi\\values-hi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-sw_values-sw.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sw\\values-sw.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-cs_values-cs.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-cs\\values-cs.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-in_values-in.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-in\\values-in.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ka_values-ka.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ka_values-ka.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ka\\values-ka.xml",
@@ -106,10 +31,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-hr_values-hr.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-es-rUS_values-es-rUS.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hr\\values-hr.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -121,10 +46,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-pt_values-pt.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-bs_values-bs.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-bs\\values-bs.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -136,127 +61,7 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-kn_values-kn.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-kn\\values-kn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-sl_values-sl.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sl\\values-sl.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-iw_values-iw.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-iw\\values-iw.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-te_values-te.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-te\\values-te.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ms_values-ms.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ms\\values-ms.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ta_values-ta.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ta\\values-ta.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-et_values-et.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-et\\values-et.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-fr_values-fr.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fr\\values-fr.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-tl_values-tl.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-tl_values-tl.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-tl\\values-tl.xml",
@@ -271,10 +76,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-or_values-or.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ms_values-ms.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-or\\values-or.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ms\\values-ms.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -286,10 +91,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ml_values-ml.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-fi_values-fi.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ml\\values-ml.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fi\\values-fi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -301,10 +106,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-da_values-da.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-as_values-as.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-da\\values-da.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-as\\values-as.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -316,10 +121,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ru_values-ru.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-et_values-et.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ru\\values-ru.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-et\\values-et.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -331,10 +136,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-sk_values-sk.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-hy_values-hy.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sk\\values-sk.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hy\\values-hy.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -346,112 +151,23 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-hu_values-hu.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-v21_values-v21.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hu\\values-hu.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-v21\\values-v21.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "2,3,4,5,6,7,8,9,10,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,354,470,596,722,850,1022",
+                        "endLines": "2,3,4,5,6,7,8,9,12,17",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
                     }
                 }
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ko_values-ko.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ko\\values-ko.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-af_values-af.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-af\\values-af.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-si_values-si.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-si\\values-si.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-sr_values-sr.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sr\\values-sr.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ar_values-ar.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ar\\values-ar.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-en-rCA_values-en-rCA.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rCA\\values-en-rCA.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-lo_values-lo.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-lo_values-lo.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-lo\\values-lo.xml",
@@ -466,7 +182,142 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-zh-rCN_values-zh-rCN.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ta_values-ta.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ta\\values-ta.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-or_values-or.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-or\\values-or.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-iw_values-iw.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-iw\\values-iw.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-hr_values-hr.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hr\\values-hr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-be_values-be.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-be\\values-be.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-da_values-da.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-da\\values-da.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-si_values-si.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-si\\values-si.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-sr_values-sr.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sr\\values-sr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-en-rIN_values-en-rIN.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-zh-rCN_values-zh-rCN.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-zh-rCN\\values-zh-rCN.xml",
@@ -481,10 +332,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-eu_values-eu.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-is_values-is.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-eu\\values-eu.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-is\\values-is.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -496,7 +347,127 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ca_values-ca.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-v16_values-v16.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-kn_values-kn.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-kn\\values-kn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-fr_values-fr.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fr\\values-fr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ml_values-ml.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ml\\values-ml.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-en-rCA_values-en-rCA.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-uz_values-uz.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-uz\\values-uz.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-lv_values-lv.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-lv\\values-lv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-tr_values-tr.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-tr\\values-tr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ca_values-ca.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ca\\values-ca.xml",
@@ -512,6 +483,542 @@
         },
         {
             "outputFile": "com.patilweb.streambrowser.app-debug-6:/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\Downloads\\cleanyourtv\\streambrowser\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,16,-1,-1,-1,-1,15,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1,4,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,710,-1,-1,-1,-1,663,-1",
+                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,48,-1,-1,-1,-1,45,-1",
+                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,754,-1,-1,-1,-1,704,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,8,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,96,133,179,356,531,578,627,675,722,771,819,863,912,959,1005",
+                        "endColumns": "40,36,45,44,42,46,48,47,46,48,47,43,48,46,45,44",
+                        "endOffsets": "91,128,174,219,394,573,622,670,717,766,814,858,907,954,1000,1045"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\amolp\\Downloads\\cleanyourtv\\streambrowser\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,31,38,-1,-1,-1,-1,-1,-1,-1,-1,22,23,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,20,21,-1,-1,34,37,35,36",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,4,-1,-1,-1,-1,-1,-1,-1,-1,4,4,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,4,-1,-1,4,4,4,4",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1704,2209,-1,-1,-1,-1,-1,-1,-1,-1,1235,1289,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1104,1164,-1,-1,1907,2128,1973,2037",
+                        "endColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,49,70,-1,-1,-1,-1,-1,-1,-1,-1,52,67,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,58,69,-1,-1,64,79,62,89",
+                        "endOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1749,2275,-1,-1,-1,-1,-1,-1,-1,-1,1283,1352,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1158,1229,-1,-1,1967,2203,2031,2122"
+                    },
+                    "to": {
+                        "startLines": "93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,150,151,152,153",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "5339,5392,5447,5504,5553,5599,5670,5721,5784,5847,5891,5946,6012,6059,6104,6160,6225,6271,6328,6422,6500,6549,6622,6699,6744,6792,6841,6884,6935,6982,7032,7103,7162,7214,7290,7342,7393,7461,7510,7575,7628,7696,7747,7815,7860,7903,7969,8022,8092,8141,8209,8258,8303,8362,8432,8477,8612,8677,8757,8820",
+                        "endColumns": "52,54,56,48,45,70,50,62,62,43,54,65,46,44,55,64,45,56,93,77,48,72,76,44,47,48,42,50,46,49,70,58,51,75,51,50,67,48,64,52,67,50,67,44,42,65,52,69,48,67,48,44,58,69,44,63,64,79,62,89",
+                        "endOffsets": "5387,5442,5499,5548,5594,5665,5716,5779,5842,5886,5941,6007,6054,6099,6155,6220,6266,6323,6417,6495,6544,6617,6694,6739,6787,6836,6879,6930,6977,7027,7098,7157,7209,7285,7337,7388,7456,7505,7570,7623,7691,7742,7810,7855,7898,7964,8017,8087,8136,8204,8253,8298,8357,8427,8472,8536,8672,8752,8815,8905"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\amolp\\Downloads\\cleanyourtv\\streambrowser\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "165",
+                        "startColumns": "4",
+                        "startOffsets": "9668",
+                        "endLines": "172",
+                        "endColumns": "12",
+                        "endOffsets": "10143"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "6,7,9,10,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,149,154,155,159,160,164,173,174",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "224,293,399,457,1050,1120,1188,1260,1330,1391,1465,1538,1599,1660,1722,1786,1848,1909,1977,2077,2137,2203,2276,2345,2402,2454,2516,2588,2664,2729,2788,2847,2907,2967,3027,3087,3147,3207,3267,3327,3387,3447,3506,3566,3626,3686,3746,3806,3866,3926,3986,4046,4106,4165,4225,4285,4344,4403,4462,4521,4580,4639,4674,4709,4764,4827,4882,4940,4997,5047,5108,5165,5199,5234,5269,8541,8910,9027,9228,9338,9539,10148,10220",
+                        "endLines": "6,7,9,10,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,149,154,158,159,163,164,173,174",
+                        "endColumns": "68,62,57,73,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,64,58,58,59,59,59,59,59,59,59,59,59,59,58,59,59,59,59,59,59,59,59,59,59,58,59,59,58,58,58,58,58,58,34,34,54,62,54,57,56,49,60,56,33,34,34,69,70,116,12,109,12,128,71,66",
+                        "endOffsets": "288,351,452,526,1115,1183,1255,1325,1386,1460,1533,1594,1655,1717,1781,1843,1904,1972,2072,2132,2198,2271,2340,2397,2449,2511,2583,2659,2724,2783,2842,2902,2962,3022,3082,3142,3202,3262,3322,3382,3442,3501,3561,3621,3681,3741,3801,3861,3921,3981,4041,4101,4160,4220,4280,4339,4398,4457,4516,4575,4634,4669,4704,4759,4822,4877,4935,4992,5042,5103,5160,5194,5229,5264,5334,8607,9022,9223,9333,9534,9663,10215,10282"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-gu_values-gu.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-en-rAU_values-en-rAU.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-pt-rBR_values-pt-rBR.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-vi_values-vi.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-sw_values-sw.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sw\\values-sw.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-sk_values-sk.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sk\\values-sk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-in_values-in.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-in\\values-in.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-hi_values-hi.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hi\\values-hi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-pt_values-pt.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pt\\values-pt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-hu_values-hu.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hu\\values-hu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-kk_values-kk.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-kk\\values-kk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ne_values-ne.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ne\\values-ne.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-pa_values-pa.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pa\\values-pa.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-fa_values-fa.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fa\\values-fa.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-am_values-am.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-am\\values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-pl_values-pl.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pl\\values-pl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-sv_values-sv.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sv\\values-sv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-uk_values-uk.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-uk\\values-uk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-mr_values-mr.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-mr\\values-mr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-de_values-de.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-de\\values-de.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-eu_values-eu.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-eu\\values-eu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-mn_values-mn.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-mn\\values-mn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ur_values-ur.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ur\\values-ur.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-gl_values-gl.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-gl\\values-gl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-zu_values-zu.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-zu\\values-zu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-nl_values-nl.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-nl\\values-nl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-my_values-my.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-my\\values-my.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ar_values-ar.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ar\\values-ar.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-lt_values-lt.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-lt\\values-lt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ro_values-ro.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ro\\values-ro.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ko_values-ko.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ko\\values-ko.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values_values.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\Downloads\\cleanyourtv\\streambrowser\\app\\src\\main\\res\\values\\colors.xml",
@@ -588,10 +1095,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-fi_values-fi.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-af_values-af.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fi\\values-fi.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-af\\values-af.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -603,10 +1110,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-is_values-is.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ru_values-ru.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-is\\values-is.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ru\\values-ru.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -618,413 +1125,7 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-uz_values-uz.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-uz\\values-uz.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-en-rAU_values-en-rAU.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-pt-rBR_values-pt-rBR.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-gu_values-gu.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-gu\\values-gu.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-lv_values-lv.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-lv\\values-lv.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-uk_values-uk.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-uk\\values-uk.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-v21_values-v21.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,159,223,290,354,470,596,722,850,1022",
-                        "endLines": "2,3,4,5,6,7,8,9,12,17",
-                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ne_values-ne.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ne\\values-ne.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-pa_values-pa.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pa\\values-pa.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-am_values-am.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-am\\values-am.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-en-rXC_values-en-rXC.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rXC\\values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "202",
-                        "endOffsets": "253"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-lt_values-lt.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-lt\\values-lt.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-pl_values-pl.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pl\\values-pl.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-b+sr+Latn_values-b+sr+Latn.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-b+sr+Latn\\values-b+sr+Latn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-zu_values-zu.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-zu\\values-zu.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-km_values-km.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-km\\values-km.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ro_values-ro.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ro\\values-ro.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-en-rIN_values-en-rIN.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rIN\\values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-el_values-el.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-el\\values-el.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-vi_values-vi.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-gl_values-gl.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-gl\\values-gl.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-my_values-my.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-my\\values-my.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-nl_values-nl.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-nl\\values-nl.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ur_values-ur.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ur\\values-ur.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-fa_values-fa.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fa\\values-fa.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-mr_values-mr.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-mr\\values-mr.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-tr_values-tr.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-tr\\values-tr.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-it_values-it.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-it_values-it.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-it\\values-it.xml",
@@ -1039,292 +1140,7 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-es_values-es.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-es\\values-es.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-th_values-th.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-th\\values-th.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-be_values-be.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-be\\values-be.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-es-rUS_values-es-rUS.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-es-rUS\\values-es-rUS.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-bn_values-bn.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-bn\\values-bn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-v16_values-v16.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-mk_values-mk.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-mk\\values-mk.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ky_values-ky.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ky\\values-ky.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-mn_values-mn.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-mn\\values-mn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-sv_values-sv.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sv\\values-sv.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-sq_values-sq.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sq\\values-sq.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-ja_values-ja.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ja\\values-ja.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-as_values-as.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-as\\values-as.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-zh-rTW_values-zh-rTW.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-hy_values-hy.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-hy\\values-hy.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-fr-rCA_values-fr-rCA.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fr-rCA\\values-fr-rCA.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-de_values-de.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-de\\values-de.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-nb_values-nb.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-nb\\values-nb.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-zh-rHK_values-zh-rHK.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-az_values-az.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-az_values-az.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-az\\values-az.xml",
@@ -1339,7 +1155,142 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-bg_values-bg.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-th_values-th.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-th\\values-th.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ky_values-ky.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ky\\values-ky.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-fr-rCA_values-fr-rCA.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-fr-rCA\\values-fr-rCA.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-en-rXC_values-en-rXC.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "202",
+                        "endOffsets": "253"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-en-rGB_values-en-rGB.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-es_values-es.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-es\\values-es.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-nb_values-nb.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-nb\\values-nb.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-te_values-te.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-te\\values-te.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-ja_values-ja.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-ja\\values-ja.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-bg_values-bg.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-bg\\values-bg.xml",
@@ -1354,10 +1305,10 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-bs_values-bs.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-sq_values-sq.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-bs\\values-bs.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sq\\values-sq.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -1369,10 +1320,130 @@
             ]
         },
         {
-            "outputFile": "com.patilweb.streambrowser.app-debug-6:/values-kk_values-kk.arsc.flat",
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-pt-rPT_values-pt-rPT.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-kk\\values-kk.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-sl_values-sl.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-sl\\values-sl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-km_values-km.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-km\\values-km.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-zh-rHK_values-zh-rHK.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-cs_values-cs.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-cs\\values-cs.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-b+sr+Latn_values-b+sr+Latn.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-b+sr+Latn\\values-b+sr+Latn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-el_values-el.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-el\\values-el.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-mk_values-mk.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-mk\\values-mk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\values-bn_values-bn.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-bn\\values-bn.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

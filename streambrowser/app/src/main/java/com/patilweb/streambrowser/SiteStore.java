@@ -10,18 +10,22 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 /**
- * Built-in sites plus user-added URLs. Hidden built-ins and custom entries live in SharedPreferences.
+ * Built-in sites plus user-added URLs. Supports hide/remove, edit, and custom order.
  */
 final class SiteStore {
     private static final String PREFS = "sites";
     private static final String KEY_CUSTOM = "custom_json";
     private static final String KEY_HIDDEN = "hidden_ids";
+    private static final String KEY_ORDER = "order_json";
+    private static final String KEY_OVERRIDES = "overrides_json";
     private static final int MAX_CUSTOM = 24;
 
     private final Context ctx;
@@ -39,6 +43,8 @@ final class SiteStore {
                 ctx.getColor(R.color.tile_cinejoy),
                 ctx.getColor(R.color.tile_movy),
                 ctx.getColor(R.color.tile_redflix),
+                ctx.getColor(R.color.tile_speech),
+                ctx.getColor(R.color.tile_dictation),
         };
     }
 
@@ -58,17 +64,42 @@ final class SiteStore {
                 "https://www.movy.sx/", accents[5], false, false));
         list.add(new Site("redflix", ctx.getString(R.string.site_redflix), ctx.getString(R.string.site_redflix_desc),
                 "http://redflix.biz/", accents[6], false, false));
+        // Audio → text websites (need mic / WebView audio capture)
+        list.add(new Site("speechtexter", ctx.getString(R.string.site_speechtexter),
+                ctx.getString(R.string.site_speechtexter_desc),
+                "https://www.speechtexter.com/", accents[7], false, false));
+        list.add(new Site("dictation", ctx.getString(R.string.site_dictation),
+                ctx.getString(R.string.site_dictation_desc),
+                "https://dictation.io/speech", accents[8], false, false));
         return list;
     }
 
-    /** Visible sites: non-hidden built-ins + custom. */
+    /** Visible sites in saved order (defaults + custom, with edits applied). */
     List<Site> allVisible() {
+        Map<String, Site> byId = catalog();
         Set<String> hidden = hiddenIds();
+        List<String> order = loadOrder();
         List<Site> out = new ArrayList<>();
-        for (Site s : defaults()) {
-            if (!hidden.contains(s.id)) out.add(s);
+
+        if (order.isEmpty()) {
+            for (Site s : defaults()) {
+                if (!hidden.contains(s.id)) out.add(applyOverride(s));
+            }
+            out.addAll(loadCustom());
+            return out;
         }
-        out.addAll(loadCustom());
+
+        Set<String> seen = new HashSet<>();
+        for (String id : order) {
+            if (hidden.contains(id) || !seen.add(id)) continue;
+            Site s = byId.get(id);
+            if (s != null) out.add(s);
+        }
+        // Append anything new not yet in the saved order.
+        for (Site s : byId.values()) {
+            if (hidden.contains(s.id) || seen.contains(s.id)) continue;
+            out.add(s);
+        }
         return out;
     }
 
@@ -80,7 +111,7 @@ final class SiteStore {
             Uri u = Uri.parse(cleanUrl);
             name = u.getHost() != null ? u.getHost() : "Site";
         }
-        if (name.length() > 24) name = name.substring(0, 24);
+        if (name.length() > 40) name = name.substring(0, 40);
         List<Site> custom = loadCustom();
         if (custom.size() >= MAX_CUSTOM) return false;
         for (Site s : allVisible()) {
@@ -90,12 +121,73 @@ final class SiteStore {
         int accent = accents[custom.size() % accents.length];
         String id = "c_" + UUID.randomUUID().toString().replace("-", "").substring(0, 10);
         custom.add(new Site(id, name, cleanUrl, cleanUrl, accent, aggressive, true));
-        return saveCustom(custom);
+        if (!saveCustom(custom)) return false;
+        List<String> order = currentOrderIds();
+        if (!order.contains(id)) order.add(id);
+        return saveOrder(order);
+    }
+
+    /** Edit name/URL for a custom site or override a built-in. */
+    boolean update(String id, String title, String url) {
+        if (id == null) return false;
+        String cleanUrl = normalizeUrl(url);
+        if (cleanUrl == null) return false;
+        String name = title == null ? "" : title.trim();
+        if (name.isEmpty()) {
+            Uri u = Uri.parse(cleanUrl);
+            name = u.getHost() != null ? u.getHost() : "Site";
+        }
+        if (name.length() > 40) name = name.substring(0, 40);
+
+        if (id.startsWith("c_")) {
+            List<Site> custom = loadCustom();
+            boolean found = false;
+            for (int i = 0; i < custom.size(); i++) {
+                Site s = custom.get(i);
+                if (!id.equals(s.id)) continue;
+                boolean aggressive = cleanUrl.toLowerCase(Locale.US).contains("cinegram")
+                        || s.aggressiveAdBlock;
+                custom.set(i, new Site(s.id, name, cleanUrl, cleanUrl, s.accentColor, aggressive, true));
+                found = true;
+                break;
+            }
+            return found && saveCustom(custom);
+        }
+
+        // Built-in override
+        JSONObject overrides = loadOverrides();
+        try {
+            JSONObject o = new JSONObject();
+            o.put("title", name);
+            o.put("url", cleanUrl);
+            o.put("description", cleanUrl);
+            overrides.put(id, o);
+            return prefs.edit().putString(KEY_OVERRIDES, overrides.toString()).commit();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /** Move site left (−1) or right (+1) in the visible list. */
+    boolean move(String id, int delta) {
+        if (id == null || delta == 0) return false;
+        List<String> order = currentOrderIds();
+        int idx = order.indexOf(id);
+        if (idx < 0) return false;
+        int dest = idx + delta;
+        if (dest < 0 || dest >= order.size()) return false;
+        order.remove(idx);
+        order.add(dest, id);
+        return saveOrder(order);
     }
 
     /** Hide a built-in or delete a custom site. */
     boolean remove(String id) {
         if (id == null) return false;
+        List<String> order = currentOrderIds();
+        order.remove(id);
+        saveOrder(order);
+
         if (id.startsWith("c_")) {
             List<Site> custom = loadCustom();
             boolean changed = false;
@@ -109,8 +201,13 @@ final class SiteStore {
             return changed && saveCustom(custom);
         }
         Set<String> hidden = hiddenIds();
-        if (!hidden.add(id)) return false;
-        return prefs.edit().putStringSet(KEY_HIDDEN, hidden).commit();
+        hidden.add(id);
+        JSONObject overrides = loadOverrides();
+        overrides.remove(id);
+        return prefs.edit()
+                .putStringSet(KEY_HIDDEN, hidden)
+                .putString(KEY_OVERRIDES, overrides.toString())
+                .commit();
     }
 
     static String normalizeUrl(String raw) {
@@ -127,9 +224,77 @@ final class SiteStore {
         return u;
     }
 
+    private Map<String, Site> catalog() {
+        Map<String, Site> map = new LinkedHashMap<>();
+        for (Site s : defaults()) {
+            if (!hiddenIds().contains(s.id)) map.put(s.id, applyOverride(s));
+        }
+        for (Site s : loadCustom()) map.put(s.id, s);
+        return map;
+    }
+
+    private List<String> currentOrderIds() {
+        List<String> order = loadOrder();
+        if (!order.isEmpty()) {
+            // Refresh: drop missing, keep extras for append by allVisible
+            Map<String, Site> byId = catalog();
+            List<String> cleaned = new ArrayList<>();
+            Set<String> seen = new HashSet<>();
+            for (String id : order) {
+                if (byId.containsKey(id) && seen.add(id)) cleaned.add(id);
+            }
+            for (String id : byId.keySet()) {
+                if (seen.add(id)) cleaned.add(id);
+            }
+            return cleaned;
+        }
+        List<String> ids = new ArrayList<>();
+        for (Site s : allVisible()) ids.add(s.id);
+        return ids;
+    }
+
+    private Site applyOverride(Site base) {
+        JSONObject overrides = loadOverrides();
+        JSONObject o = overrides.optJSONObject(base.id);
+        if (o == null) return base;
+        String title = o.optString("title", base.title);
+        String url = o.optString("url", base.url);
+        if (normalizeUrl(url) == null) url = base.url;
+        String desc = o.optString("description", base.description);
+        return new Site(base.id, title, desc, url, base.accentColor, base.aggressiveAdBlock, false);
+    }
+
     private Set<String> hiddenIds() {
         Set<String> set = prefs.getStringSet(KEY_HIDDEN, null);
         return set == null ? new HashSet<>() : new HashSet<>(set);
+    }
+
+    private List<String> loadOrder() {
+        List<String> out = new ArrayList<>();
+        String json = prefs.getString(KEY_ORDER, "[]");
+        try {
+            JSONArray arr = new JSONArray(json);
+            for (int i = 0; i < arr.length(); i++) {
+                String id = arr.optString(i, "");
+                if (!id.isEmpty()) out.add(id);
+            }
+        } catch (Exception ignored) {
+        }
+        return out;
+    }
+
+    private boolean saveOrder(List<String> order) {
+        JSONArray arr = new JSONArray();
+        for (String id : order) arr.put(id);
+        return prefs.edit().putString(KEY_ORDER, arr.toString()).commit();
+    }
+
+    private JSONObject loadOverrides() {
+        try {
+            return new JSONObject(prefs.getString(KEY_OVERRIDES, "{}"));
+        } catch (Exception e) {
+            return new JSONObject();
+        }
     }
 
     private List<Site> loadCustom() {

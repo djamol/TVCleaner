@@ -40,6 +40,8 @@ import android.widget.Toast;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
 
+import java.util.Locale;
+
 public class BrowserActivity extends Activity implements TvCursorView.Listener {
 
     private static final int REQ_MIC = 42;
@@ -55,10 +57,12 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     private PermissionRequest pendingWebPermission;
     private AudioManager audioManager;
     private AudioFocusRequest audioFocusRequest;
+    private SpeechHelper speechHelper;
     private boolean aggressive;
     private boolean menuVisible;
     private boolean keyboardVisible;
     private boolean syncingBridge;
+    private boolean voiceListening;
     private final Handler handler = new Handler(Looper.getMainLooper());
 
     /** Unmute HTML5 / common players that start muted for autoplay policies. */
@@ -93,6 +97,36 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
                     + "scan();"
                     + "new MutationObserver(scan).observe(document.documentElement||document.body,"
                     + "{childList:true,subtree:true});"
+                    + "})();";
+
+    /**
+     * Polyfill Web Speech API with the native {@code StvSpeech} bridge so audio→text sites
+     * (SpeechTexter, Dictation.io) work on Android TV WebView.
+     */
+    private static final String SPEECH_POLYFILL_JS =
+            "(function(){"
+                    + "if(window.__stvSpeechPoly)return;window.__stvSpeechPoly=1;"
+                    + "if(window.webkitSpeechRecognition||window.SpeechRecognition)return;"
+                    + "if(!window.StvSpeech)return;"
+                    + "function Rec(){"
+                    + "  this.lang='en-US';this.continuous=false;this.interimResults=true;"
+                    + "  this.onresult=null;this.onerror=null;this.onend=null;this.onstart=null;"
+                    + "  var self=this;"
+                    + "  this.start=function(){try{window.StvSpeech.start(String(self.lang||'en-US'));"
+                    + "    if(self.onstart)self.onstart();}catch(e){if(self.onerror)self.onerror({error:'not-allowed'});}};"
+                    + "  this.stop=function(){try{window.StvSpeech.stop();}catch(e){}};"
+                    + "  this.abort=this.stop;"
+                    + "  window.__stvRec=this;"
+                    + "}"
+                    + "window.webkitSpeechRecognition=Rec;window.SpeechRecognition=Rec;"
+                    + "window.__stvOnPartial=function(t){var r=window.__stvRec;if(!r||!r.onresult)return;"
+                    + "  var item=[{transcript:String(t||''),confidence:0.7}];item.isFinal=false;"
+                    + "  r.onresult({resultIndex:0,results:[item]});};"
+                    + "window.__stvOnFinal=function(t){var r=window.__stvRec;if(!r||!r.onresult)return;"
+                    + "  var item=[{transcript:String(t||''),confidence:0.9}];item.isFinal=true;"
+                    + "  r.onresult({resultIndex:0,results:[item]});};"
+                    + "window.__stvOnSpeechError=function(m){var r=window.__stvRec;if(r&&r.onerror)r.onerror({error:String(m||'error')});};"
+                    + "window.__stvOnSpeechEnd=function(){var r=window.__stvRec;if(r&&r.onend)r.onend();};"
                     + "})();";
 
     /** Notify Android when a page input gains focus (covers mouse-less / JS focus). */
@@ -189,6 +223,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         Button btnForward = findViewById(R.id.btn_forward);
         Button btnReload = findViewById(R.id.btn_reload);
         Button btnKeyboard = findViewById(R.id.btn_keyboard);
+        Button btnVoice = findViewById(R.id.btn_voice);
         Button btnHome = findViewById(R.id.btn_home);
 
         btnBack.setOnClickListener(v -> {
@@ -207,9 +242,14 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
             hideMenu();
             toggleKeyboard();
         });
+        btnVoice.setOnClickListener(v -> {
+            hideMenu();
+            toggleVoiceTyping();
+        });
         btnHome.setOnClickListener(v -> finish());
 
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        speechHelper = new SpeechHelper(this);
         ensureMicPermission();
         setupWebView();
         webView.loadUrl(url);
@@ -278,7 +318,22 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     private void grantWebPermissions(PermissionRequest request) {
         if (request == null) return;
         try {
-            request.grant(request.getResources());
+            // Prefer audio-only when the page asked for mic (speech sites).
+            String[] wanted = request.getResources();
+            java.util.ArrayList<String> grant = new java.util.ArrayList<>();
+            for (String r : wanted) {
+                if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(r)
+                        || PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(r)
+                        || PermissionRequest.RESOURCE_PROTECTED_MEDIA_ID.equals(r)) {
+                    grant.add(r);
+                }
+            }
+            if (grant.isEmpty()) {
+                request.grant(wanted);
+            } else {
+                request.grant(grant.toArray(new String[0]));
+            }
+            Toast.makeText(this, R.string.mic_ready, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             try {
                 request.deny();
@@ -341,6 +396,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         webView.setFocusable(false);
         webView.setFocusableInTouchMode(false);
         webView.addJavascriptInterface(new KeyboardBridge(), "StvKeyboard");
+        webView.addJavascriptInterface(new SpeechBridge(), "StvSpeech");
         if (WebViewFeature.isFeatureSupported(WebViewFeature.MUTE_AUDIO)) {
             WebViewCompat.setAudioMuted(webView, false);
         }
@@ -436,6 +492,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
 
     private void injectPageScripts() {
         webView.evaluateJavascript(AdBlocker.cleanupScript(aggressive), null);
+        webView.evaluateJavascript(SPEECH_POLYFILL_JS, null);
         webView.evaluateJavascript(AUTO_FULLSCREEN_JS, null);
         webView.evaluateJavascript(FOCUS_HOOK_JS, null);
         webView.evaluateJavascript(UNMUTE_JS, null);
@@ -449,6 +506,132 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         public void onInputFocused(final String currentValue) {
             handler.post(() -> showKeyboard(currentValue == null ? "" : currentValue, true));
         }
+    }
+
+    private final class SpeechBridge {
+        @JavascriptInterface
+        public void start(String lang) {
+            handler.post(() -> startNativeSpeech(lang, true));
+        }
+
+        @JavascriptInterface
+        public void stop() {
+            handler.post(() -> stopNativeSpeech(false));
+        }
+    }
+
+    private void toggleVoiceTyping() {
+        if (voiceListening) {
+            stopNativeSpeech(true);
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 23
+                && checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, R.string.voice_need_mic, Toast.LENGTH_LONG).show();
+            ensureMicPermission();
+            return;
+        }
+        if (speechHelper == null || !speechHelper.available()) {
+            Toast.makeText(this, R.string.voice_unavailable, Toast.LENGTH_LONG).show();
+            return;
+        }
+        startNativeSpeech(Locale.getDefault().toLanguageTag(), false);
+    }
+
+    private void startNativeSpeech(String lang, boolean fromWeb) {
+        if (speechHelper == null) return;
+        if (Build.VERSION.SDK_INT >= 23
+                && checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            ensureMicPermission();
+            if (fromWeb) {
+                webView.evaluateJavascript(
+                        "try{window.__stvOnSpeechError&&window.__stvOnSpeechError('not-allowed');"
+                                + "window.__stvOnSpeechEnd&&window.__stvOnSpeechEnd();}catch(e){}",
+                        null);
+            }
+            return;
+        }
+        requestPlaybackAudioFocus();
+        voiceListening = true;
+        if (!fromWeb) {
+            Toast.makeText(this, R.string.voice_listening, Toast.LENGTH_SHORT).show();
+        }
+        speechHelper.start(lang, new SpeechHelper.Listener() {
+            @Override
+            public void onPartial(String text) {
+                if (fromWeb) {
+                    webView.evaluateJavascript(
+                            "try{window.__stvOnPartial&&window.__stvOnPartial(\""
+                                    + jsonEscape(text) + "\");}catch(e){}", null);
+                }
+            }
+
+            @Override
+            public void onFinal(String text) {
+                if (fromWeb) {
+                    webView.evaluateJavascript(
+                            "try{window.__stvOnFinal&&window.__stvOnFinal(\""
+                                    + jsonEscape(text) + "\");}catch(e){}", null);
+                } else {
+                    appendVoiceToPage(text);
+                }
+            }
+
+            @Override
+            public void onError(String message) {
+                voiceListening = false;
+                if (fromWeb) {
+                    webView.evaluateJavascript(
+                            "try{window.__stvOnSpeechError&&window.__stvOnSpeechError(\""
+                                    + jsonEscape(message) + "\");}catch(e){}", null);
+                } else {
+                    Toast.makeText(BrowserActivity.this, message, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onEnded() {
+                voiceListening = false;
+                if (fromWeb) {
+                    webView.evaluateJavascript(
+                            "try{window.__stvOnSpeechEnd&&window.__stvOnSpeechEnd();}catch(e){}", null);
+                }
+            }
+        });
+    }
+
+    private void stopNativeSpeech(boolean toast) {
+        voiceListening = false;
+        if (speechHelper != null) speechHelper.stop();
+        if (toast) Toast.makeText(this, R.string.voice_stopped, Toast.LENGTH_SHORT).show();
+    }
+
+    private void appendVoiceToPage(String text) {
+        if (text == null || text.isEmpty() || webView == null) return;
+        // Append into focused field, or seed the IME bridge.
+        String escaped = jsonEscape(text);
+        webView.evaluateJavascript(
+                "(function(t){try{"
+                        + "var el=document.activeElement;"
+                        + "function editable(e){if(!e)return false;var tag=(e.tagName||'').toLowerCase();"
+                        + "  return tag==='textarea'||tag==='input'||e.isContentEditable;}"
+                        + "if(editable(el)){"
+                        + "  if(el.isContentEditable){el.textContent=(el.textContent||'')+(el.textContent?' ':'')+t;}"
+                        + "  else{el.value=(el.value||'')+(el.value?' ':'')+t;"
+                        + "    el.dispatchEvent(new Event('input',{bubbles:true}));}"
+                        + "  return 'ok';"
+                        + "}"
+                        + "return 'none';"
+                        + "}catch(e){return 'err';}})(\"" + escaped + "\")",
+                value -> {
+                    if (value != null && value.contains("none")) {
+                        showKeyboard(text, false);
+                    } else {
+                        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     @Override
@@ -716,10 +899,15 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     @Override
     protected void onDestroy() {
         handler.removeCallbacksAndMessages(null);
+        if (speechHelper != null) {
+            speechHelper.destroy();
+            speechHelper = null;
+        }
         abandonPlaybackAudioFocus();
         if (isFullscreen()) exitFullscreen();
         if (webView != null) {
             webView.removeJavascriptInterface("StvKeyboard");
+            webView.removeJavascriptInterface("StvSpeech");
             webView.stopLoading();
             ViewGroup parent = (ViewGroup) webView.getParent();
             if (parent != null) parent.removeView(webView);

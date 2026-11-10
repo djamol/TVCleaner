@@ -1,9 +1,12 @@
 package com.patilweb.streambrowser;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -45,6 +48,7 @@ public class HomeActivity extends Activity {
     private LinearLayout dotsRow;
     private int currentIndex;
     private boolean carouselPaused;
+    private String focusSiteId;
 
     private final Runnable advanceCarousel = new Runnable() {
         @Override
@@ -66,10 +70,17 @@ public class HomeActivity extends Activity {
         tileRows = findViewById(R.id.tile_rows);
         dotsRow = findViewById(R.id.banner_dots);
 
-        findViewById(R.id.btn_add_site).setOnClickListener(v -> showAddSiteDialog());
+        findViewById(R.id.btn_add_site).setOnClickListener(v -> showSiteDialog(null));
 
         bannerFrame.setOnClickListener(v -> {
             if (!sites.isEmpty()) openSite(sites.get(currentIndex));
+        });
+        bannerFrame.setOnLongClickListener(v -> {
+            if (!sites.isEmpty()) {
+                showSiteActions(sites.get(currentIndex));
+                return true;
+            }
+            return false;
         });
         bannerFrame.setOnFocusChangeListener((v, hasFocus) -> {
             carouselPaused = hasFocus;
@@ -91,20 +102,58 @@ public class HomeActivity extends Activity {
                 showSlide((currentIndex + 1) % sites.size(), true);
                 return true;
             }
+            if (keyCode == KeyEvent.KEYCODE_MENU || keyCode == KeyEvent.KEYCODE_INFO) {
+                showSiteActions(sites.get(currentIndex));
+                return true;
+            }
             return false;
         });
 
         rebuildUi();
         bannerFrame.requestFocus();
+        requestMicIfNeeded();
+    }
+
+    private void requestMicIfNeeded() {
+        if (Build.VERSION.SDK_INT < 23) return;
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, 71);
     }
 
     private void rebuildUi() {
+        String keepId = focusSiteId;
+        int keepIndex = currentIndex;
         sites = store.allVisible();
         currentIndex = 0;
+        if (keepId != null) {
+            for (int i = 0; i < sites.size(); i++) {
+                if (keepId.equals(sites.get(i).id)) {
+                    currentIndex = i;
+                    break;
+                }
+            }
+        } else if (keepIndex > 0 && keepIndex < sites.size()) {
+            currentIndex = keepIndex;
+        }
         setupCarousel();
         setupDots();
         setupTiles();
+        if (!sites.isEmpty()) showSlide(currentIndex, false);
         scheduleCarousel();
+        restoreTileFocus(keepId);
+    }
+
+    private void restoreTileFocus(String siteId) {
+        if (siteId == null || tileRows.getChildCount() == 0) return;
+        for (int i = 0; i < sites.size() && i < tileRows.getChildCount(); i++) {
+            if (siteId.equals(sites.get(i).id)) {
+                tileRows.getChildAt(i).requestFocus();
+                return;
+            }
+        }
     }
 
     private void setupTiles() {
@@ -143,23 +192,82 @@ public class HomeActivity extends Activity {
 
         tile.setOnClickListener(v -> openSite(site));
         tile.setOnLongClickListener(v -> {
-            confirmRemove(site);
+            showSiteActions(site);
             return true;
+        });
+        tile.setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
+            if (keyCode == KeyEvent.KEYCODE_MENU || keyCode == KeyEvent.KEYCODE_INFO) {
+                showSiteActions(site);
+                return true;
+            }
+            return false;
         });
         tile.setOnFocusChangeListener((v, hasFocus) -> {
             float scale = hasFocus ? 1.05f : 1f;
             v.animate().scaleX(scale).scaleY(scale).setDuration(120).start();
+            if (hasFocus) focusSiteId = site.id;
         });
         tile.setNextFocusUpId(R.id.banner_frame);
     }
 
-    private void showAddSiteDialog() {
+    private void showSiteActions(Site site) {
+        focusSiteId = site.id;
+        CharSequence[] items = new CharSequence[]{
+                getString(R.string.action_edit),
+                getString(R.string.action_move_left),
+                getString(R.string.action_move_right),
+                getString(R.string.action_remove),
+        };
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.site_actions_title, site.title))
+                .setItems(items, (d, which) -> {
+                    switch (which) {
+                        case 0:
+                            showSiteDialog(site);
+                            break;
+                        case 1:
+                            moveSite(site, -1);
+                            break;
+                        case 2:
+                            moveSite(site, 1);
+                            break;
+                        case 3:
+                            confirmRemove(site);
+                            break;
+                        default:
+                            break;
+                    }
+                })
+                .setNegativeButton(R.string.add_site_cancel, null)
+                .show();
+    }
+
+    private void moveSite(Site site, int delta) {
+        focusSiteId = site.id;
+        if (!store.move(site.id, delta)) {
+            Toast.makeText(this, R.string.move_failed, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(this, R.string.site_moved, Toast.LENGTH_SHORT).show();
+        rebuildUi();
+    }
+
+    /** null site = add new; non-null = edit existing. */
+    private void showSiteDialog(Site existing) {
         View form = getLayoutInflater().inflate(R.layout.dialog_add_site, null);
+        TextView heading = form.findViewById(R.id.dialog_heading);
         EditText name = form.findViewById(R.id.input_title);
         EditText url = form.findViewById(R.id.input_url);
+        boolean editing = existing != null;
+        heading.setText(editing ? R.string.edit_site_title : R.string.add_site_title);
+        if (editing) {
+            name.setText(existing.title);
+            url.setText(existing.url);
+        }
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(form)
-                .setPositiveButton(R.string.add_site_ok, null)
+                .setPositiveButton(editing ? R.string.edit_site_ok : R.string.add_site_ok, null)
                 .setNegativeButton(R.string.add_site_cancel, null)
                 .create();
         dialog.setOnShowListener(d -> {
@@ -171,15 +279,32 @@ public class HomeActivity extends Activity {
                     return;
                 }
                 String t = name.getText() != null ? name.getText().toString() : "";
-                if (!store.addCustom(t, u)) {
-                    Toast.makeText(this, R.string.add_site_failed, Toast.LENGTH_SHORT).show();
-                    return;
+                boolean okSave;
+                if (editing) {
+                    focusSiteId = existing.id;
+                    okSave = store.update(existing.id, t, u);
+                    if (!okSave) {
+                        Toast.makeText(this, R.string.edit_site_failed, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Toast.makeText(this, R.string.site_saved, Toast.LENGTH_SHORT).show();
+                } else {
+                    okSave = store.addCustom(t, u);
+                    if (!okSave) {
+                        Toast.makeText(this, R.string.add_site_failed, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                 }
                 dialog.dismiss();
                 rebuildUi();
-                if (!sites.isEmpty()) showSlide(sites.size() - 1, false);
+                if (!editing && !sites.isEmpty()) {
+                    showSlide(sites.size() - 1, false);
+                    focusSiteId = sites.get(sites.size() - 1).id;
+                    restoreTileFocus(focusSiteId);
+                }
             });
-            url.requestFocus();
+            if (editing) name.requestFocus();
+            else url.requestFocus();
         });
         dialog.show();
     }
@@ -190,6 +315,7 @@ public class HomeActivity extends Activity {
                 .setPositiveButton(R.string.remove_site, (d, w) -> {
                     store.remove(site.id);
                     Toast.makeText(this, R.string.site_removed, Toast.LENGTH_SHORT).show();
+                    focusSiteId = null;
                     rebuildUi();
                     bannerFrame.requestFocus();
                 })
@@ -219,7 +345,10 @@ public class HomeActivity extends Activity {
         }
         flipper.setInAnimation(this, android.R.anim.fade_in);
         flipper.setOutAnimation(this, android.R.anim.fade_out);
-        if (flipper.getChildCount() > 0) flipper.setDisplayedChild(0);
+        if (flipper.getChildCount() > 0) {
+            int idx = Math.min(currentIndex, flipper.getChildCount() - 1);
+            flipper.setDisplayedChild(Math.max(0, idx));
+        }
     }
 
     private void setupDots() {
@@ -232,7 +361,7 @@ public class HomeActivity extends Activity {
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(size, size);
             if (i > 0) lp.setMarginStart(gap);
             dot.setLayoutParams(lp);
-            dot.setImageResource(i == 0 ? R.drawable.dot_active : R.drawable.dot_inactive);
+            dot.setImageResource(i == currentIndex ? R.drawable.dot_active : R.drawable.dot_inactive);
             dotsRow.addView(dot);
             dots.add(dot);
         }
@@ -241,6 +370,7 @@ public class HomeActivity extends Activity {
     private void showSlide(int index, boolean animate) {
         if (index < 0 || index >= flipper.getChildCount()) return;
         currentIndex = index;
+        if (!sites.isEmpty()) focusSiteId = sites.get(index).id;
         if (!animate) {
             flipper.setInAnimation(null);
             flipper.setOutAnimation(null);
