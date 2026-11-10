@@ -124,7 +124,7 @@ Companion apps (optional — ask me which to install)
 | `tvcam/` | `com.patilweb.tvcam` | CCTV / PiP camera app. Prefer release: `tvcam/app/build/outputs/apk/release/app-release.apk` |
 | `streambrowser/` | `com.patilweb.streambrowser` | Leanback web / stream browser. Prefer release if present, else debug under `streambrowser/app/build/outputs/apk/` |
 | `tizentube/` | `io.gh.reisxd.tizentube.cobalt` | YouTube (Cobalt) build. Prefer `tizentube/cobalt-arm-noads.apk` on `armeabi-v7a` boxes; use `cobalt-arm.apk` if needed. Large (~80 MB) |
-| External release (example) | `com.playz.tv` | AmolTV / PlayZ: download then install, e.g. `https://github.com/amolpatil2025/PlayZ-TV-Modded/releases/download/v1/AmolTV.apk` |
+| External release (example) | `com.playz.tv` | AmolTV / PlayZ: download then install, e.g. `https://github.com/amolpatil2025/PlayZ-TV-Modded/raw/refs/heads/main/AmolTV.apk` |
 
 TV Remap — enable listening (required or buttons do nothing)
 - Check root: `adb shell su 0 id`. If uid=0, open the app once so **RootKeyService** starts (foreground

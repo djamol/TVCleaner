@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-85:12
-INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-85:12
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:2:1-89:12
 	package
 		INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -55,8 +55,8 @@ ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidMani
 	android:name
 		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:18:23-70
 application
-ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:22:5-84:19
-INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:22:5-84:19
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:22:5-88:19
+INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:22:5-88:19
 	android:extractNativeLibs
 		INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml
 	android:label
@@ -136,13 +136,13 @@ ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidMani
 	android:name
 		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:73:13-43
 receiver#com.patilweb.tvremap.BootReceiver
-ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:76:9-83:20
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:76:9-87:20
 	android:exported
 		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:78:13-36
 	android:name
 		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:77:13-41
-intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.QUICKBOOT_POWERON
-ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:79:13-82:29
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:android.intent.action.TIMEZONE_CHANGED+action:name:android.intent.action.TIME_SET+action:name:com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:79:13-86:29
 action#android.intent.action.BOOT_COMPLETED
 ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:80:17-79
 	android:name
@@ -151,6 +151,22 @@ action#android.intent.action.QUICKBOOT_POWERON
 ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:81:17-82
 	android:name
 		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:81:25-79
+action#com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:82:17-82
+	android:name
+		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:82:25-79
+action#android.intent.action.TIME_SET
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:83:17-73
+	android:name
+		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:83:25-70
+action#android.intent.action.TIMEZONE_CHANGED
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:84:17-81
+	android:name
+		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:84:25-78
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:85:17-84
+	android:name
+		ADDED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:85:25-81
 uses-sdk
 INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml

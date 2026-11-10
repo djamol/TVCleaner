@@ -1,0 +1,9 @@
+on property:sys.boot_completed=1
+    start tvremap_boot
+
+service tvremap_boot /system/bin/tvremap-boot
+    disabled
+    oneshot
+    user root
+    group shell
+    seclabel u:r:shell:s0

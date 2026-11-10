@@ -119,7 +119,7 @@ adb -s $TV install -r tizentube/cobalt-arm-noads.apk
 
 # AmolTV / PlayZ (download once, then install)
 curl -L -o tmp_apk/AmolTV.apk \
-  https://github.com/amolpatil2025/PlayZ-TV-Modded/releases/download/v1/AmolTV.apk
+  https://github.com/amolpatil2025/PlayZ-TV-Modded/raw/refs/heads/main/AmolTV.apk
 adb -s $TV install -r tmp_apk/AmolTV.apk
 ```
 

@@ -48,7 +48,10 @@ public class MainActivity extends Activity {
     private HorizontalScrollView hscroll;
     private TableLayout table;
     private TextView status;
+    private TextView session;
     private int scrollStep;
+    private volatile boolean holdSession = true;
+    private boolean resumeOnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,8 @@ public class MainActivity extends Activity {
         hscroll = findViewById(R.id.hscroll);
         table = findViewById(R.id.table);
         status = findViewById(R.id.status);
+        session = findViewById(R.id.session);
+        session.setOnClickListener(v -> onSessionClick());
         scrollStep = Math.round(140 * getResources().getDisplayMetrics().density);
         scroll.setDescendantFocusability(ScrollView.FOCUS_BLOCK_DESCENDANTS);
         for (int i = 0; i < WIDTHS.length; i++) {
@@ -65,13 +70,36 @@ public class MainActivity extends Activity {
             table.setColumnStretchable(i, false);
         }
         scroll.requestFocus();
-        load();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (resumeOnReturn) {
+            resumeOnReturn = false;
+            holdSession = true;
+        }
+        if (holdSession) {
+            session.setText(R.string.logout);
+            load();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        main.removeCallbacks(refresh);
+        if (holdSession) {
+            holdSession = false;
+            resumeOnReturn = true;
+            io.execute(() -> finishSignOut(false));
+        }
+        super.onStop();
     }
 
     @Override
     protected void onDestroy() {
         main.removeCallbacks(refresh);
-        io.shutdownNow();
+        io.shutdown();
         super.onDestroy();
     }
 
@@ -79,12 +107,36 @@ public class MainActivity extends Activity {
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getAction() == KeyEvent.ACTION_DOWN) {
             int code = event.getKeyCode();
+            if (code == KeyEvent.KEYCODE_MENU) {
+                session.performClick();
+                return true;
+            }
+            if (getCurrentFocus() == session) {
+                if (code == KeyEvent.KEYCODE_DPAD_DOWN) {
+                    scroll.requestFocus();
+                    return true;
+                }
+                if (code == KeyEvent.KEYCODE_DPAD_CENTER
+                        || code == KeyEvent.KEYCODE_ENTER
+                        || code == KeyEvent.KEYCODE_NUMPAD_ENTER) {
+                    return super.dispatchKeyEvent(event);
+                }
+                if (code == KeyEvent.KEYCODE_DPAD_UP
+                        || code == KeyEvent.KEYCODE_DPAD_LEFT
+                        || code == KeyEvent.KEYCODE_DPAD_RIGHT) {
+                    return true;
+                }
+            }
             if (code == KeyEvent.KEYCODE_DPAD_DOWN) {
                 scroll.smoothScrollBy(0, scrollStep);
                 return true;
             }
             if (code == KeyEvent.KEYCODE_DPAD_UP) {
-                scroll.smoothScrollBy(0, -scrollStep);
+                if (scroll.getScrollY() == 0) {
+                    session.requestFocus();
+                } else {
+                    scroll.smoothScrollBy(0, -scrollStep);
+                }
                 return true;
             }
             if (code == KeyEvent.KEYCODE_DPAD_RIGHT) {
@@ -99,22 +151,79 @@ public class MainActivity extends Activity {
         return super.dispatchKeyEvent(event);
     }
 
+    private void onSessionClick() {
+        if (holdSession) {
+            resumeOnReturn = false;
+            holdSession = false;
+            main.removeCallbacks(refresh);
+            session.setText(R.string.login);
+            status.setTextColor(SUB);
+            status.setText(R.string.signing_out);
+            io.execute(() -> finishSignOut(true));
+        } else {
+            holdSession = true;
+            session.setText(R.string.logout);
+            load();
+        }
+    }
+
+    private void finishSignOut(boolean announce) {
+        String error = null;
+        try {
+            gateway.signOut();
+        } catch (Throwable e) {
+            error = e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage();
+        }
+        if (!announce) {
+            return;
+        }
+        String message = error;
+        main.post(() -> {
+            if (holdSession) {
+                return;
+            }
+            session.setText(R.string.login);
+            if (message == null) {
+                status.setTextColor(SUB);
+                status.setText(R.string.signed_out);
+            } else {
+                status.setTextColor(0xFFA12622);
+                status.setText(getString(R.string.logout_failed, message));
+            }
+        });
+    }
+
     private void load() {
         main.removeCallbacks(refresh);
+        if (!holdSession) {
+            return;
+        }
         if (!busy.compareAndSet(false, true)) {
-            main.postDelayed(refresh, REFRESH_MS);
+            if (holdSession) {
+                main.postDelayed(refresh, REFRESH_MS);
+            }
             return;
         }
         io.execute(() -> {
             try {
                 List<Gateway.Client> clients = gateway.load();
-                main.post(() -> show(clients, null));
+                main.post(() -> {
+                    if (holdSession) {
+                        show(clients, null);
+                    }
+                });
             } catch (Throwable e) {
                 String message = e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage();
-                main.post(() -> show(null, message));
+                main.post(() -> {
+                    if (holdSession) {
+                        show(null, message);
+                    }
+                });
             } finally {
                 busy.set(false);
-                main.postDelayed(refresh, REFRESH_MS);
+                if (holdSession) {
+                    main.postDelayed(refresh, REFRESH_MS);
+                }
             }
         });
     }

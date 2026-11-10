@@ -16,6 +16,10 @@
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.hguclients.app-main-6:\\layout\\activity_main.xml"
     },
     {
+        "merged": "com.patilweb.hguclients.app-debug-4:/drawable_session_button.xml.flat",
+        "source": "com.patilweb.hguclients.app-main-6:/drawable/session_button.xml"
+    },
+    {
         "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.hguclients.app-debug-4:\\drawable_ic_launcher.png.flat",
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.hguclients.app-main-6:\\drawable\\ic_launcher.png"
     }

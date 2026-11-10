@@ -71,17 +71,31 @@ public class RootKeyService extends Service implements ActionRunner.Host {
             cmd.append(d);
         }
         String shell = "for d in " + cmd + "; do getevent -t \"$d\" & done; wait";
-        try {
-            process = Runtime.getRuntime().exec(new String[]{"su", "0", "sh", "-c", shell});
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while (running.get() && (line = reader.readLine()) != null) {
-                parseLine(line.trim());
+        int attempt = 0;
+        while (running.get()) {
+            Process proc = null;
+            try {
+                proc = Runtime.getRuntime().exec(new String[]{"su", "0", "sh", "-c", shell});
+                process = proc;
+                BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+                String line;
+                while (running.get() && (line = reader.readLine()) != null) {
+                    attempt = 0;
+                    parseLine(line.trim());
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "getevent failed", e);
+            } finally {
+                if (proc != null) proc.destroy();
             }
-        } catch (Exception e) {
-            Log.e(TAG, "getevent failed", e);
-        } finally {
-            running.set(false);
+            if (!running.get()) break;
+            attempt++;
+            Log.w(TAG, "getevent ended, retry " + attempt);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                break;
+            }
         }
     }
 

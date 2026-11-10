@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Clients</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="logout_failed">Could not log out. %1$s</string>
+    <string name="signed_out">Logged out. This account can sign in somewhere else.</string>
+    <string name="signing_out">Signing out of the gateway…</string>
     <style name="Theme.Clients" parent="@android:style/Theme.Material.NoActionBar">
         <item name="android:windowBackground">#FFF4F7FB</item>
         <item name="android:colorPrimary">#FF17324D</item>

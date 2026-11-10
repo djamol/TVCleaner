@@ -176,15 +176,38 @@ public final class Gateway {
             logout();
             page = get("/admin/login.asp");
             token = csrf(page);
-            post("/boaform/admin/formLogin",
+            result = post("/boaform/admin/formLogin",
                     "username=" + enc(USER)
                             + "&psd=" + enc(PASSWORD)
                             + "&sec_lang=0&loginSelinit=&ismobile=&csrftoken=" + enc(token));
         }
+        if (result.contains("you have logined")) {
+            throw new Exception("This account is already signed in");
+        }
+    }
+
+    /** Ends the gateway session so the same account can sign in elsewhere. */
+    void signOut() throws Exception {
+        CookieHandler.setDefault(cookies);
+        try {
+            logout();
+        } finally {
+            cookies.getCookieStore().removeAll();
+        }
     }
 
     private void logout() throws Exception {
-        post("/boaform/admin/formLogout", "submit-url=" + enc("/admin/login.asp"));
+        String page = get("/status_ethernet_info.asp");
+        String token = csrf(page);
+        if (page.contains("formLogin") || token.isEmpty()) {
+            page = get("/admin/login.asp");
+            token = csrf(page);
+        }
+        String body = "submit-url=" + enc("/admin/login.asp");
+        if (!token.isEmpty()) {
+            body += "&csrftoken=" + enc(token);
+        }
+        post("/boaform/admin/formLogout", body);
     }
 
     /** The gateway DHCP name for this MAC is stale. The box is an X9 Turbo. */

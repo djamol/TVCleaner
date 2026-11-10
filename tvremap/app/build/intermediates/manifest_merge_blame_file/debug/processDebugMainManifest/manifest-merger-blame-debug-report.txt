@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.patilweb.tvremap"
-4    android:versionCode="6"
-5    android:versionName="2.2" >
+4    android:versionCode="7"
+5    android:versionName="2.3" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
@@ -56,7 +56,7 @@
 33    </queries>
 34
 35    <application
-35-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:22:5-84:19
+35-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:22:5-88:19
 36        android:allowBackup="false"
 36-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:27:9-36
 37        android:banner="@drawable/banner"
@@ -157,21 +157,33 @@
 87-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:74:13-37
 88
 89        <receiver
-89-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:76:9-83:20
+89-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:76:9-87:20
 90            android:name="com.patilweb.tvremap.BootReceiver"
 90-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:77:13-41
 91            android:exported="true" >
 91-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:78:13-36
 92            <intent-filter>
-92-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:79:13-82:29
+92-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:79:13-86:29
 93                <action android:name="android.intent.action.BOOT_COMPLETED" />
 93-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:80:17-79
 93-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:80:25-76
 94                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
 94-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:81:17-82
 94-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:81:25-79
-95            </intent-filter>
-96        </receiver>
-97    </application>
-98
-99</manifest>
+95                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+95-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:82:17-82
+95-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:82:25-79
+96                <action android:name="android.intent.action.TIME_SET" />
+96-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:83:17-73
+96-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:83:25-70
+97                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+97-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:84:17-81
+97-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:84:25-78
+98                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+98-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:85:17-84
+98-->C:\Users\amolp\Downloads\cleanyourtv\tvremap\app\src\main\AndroidManifest.xml:85:25-81
+99            </intent-filter>
+100        </receiver>
+101    </application>
+102
+103</manifest>
