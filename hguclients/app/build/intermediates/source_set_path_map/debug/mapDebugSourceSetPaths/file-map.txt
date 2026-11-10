@@ -1,0 +1,7 @@
+com.patilweb.hguclients.app-pngs-0 C:\Users\amolp\Downloads\cleanyourtv\hguclients\app\build\generated\res\pngs\debug
+com.patilweb.hguclients.app-resValues-1 C:\Users\amolp\Downloads\cleanyourtv\hguclients\app\build\generated\res\resValues\debug
+com.patilweb.hguclients.app-packageDebugResources-2 C:\Users\amolp\Downloads\cleanyourtv\hguclients\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.patilweb.hguclients.app-packageDebugResources-3 C:\Users\amolp\Downloads\cleanyourtv\hguclients\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.patilweb.hguclients.app-debug-4 C:\Users\amolp\Downloads\cleanyourtv\hguclients\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.patilweb.hguclients.app-debug-5 C:\Users\amolp\Downloads\cleanyourtv\hguclients\app\src\debug\res
+com.patilweb.hguclients.app-main-6 C:\Users\amolp\Downloads\cleanyourtv\hguclients\app\src\main\res

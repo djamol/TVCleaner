@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Clients</string>
+    <style name="Theme.Clients" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#FFF4F7FB</item>
+        <item name="android:colorPrimary">#FF17324D</item>
+        <item name="android:statusBarColor">#FFF4F7FB</item>
+        <item name="android:navigationBarColor">#FFF4F7FB</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
