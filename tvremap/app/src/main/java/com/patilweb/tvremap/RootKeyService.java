@@ -60,17 +60,9 @@ public class RootKeyService extends Service implements ActionRunner.Host {
     }
 
     private void loop() {
-        String[] devices = {
-                "/dev/input/event3",
-                "/dev/input/event1",
-                "/dev/input/event2",
-        };
-        StringBuilder cmd = new StringBuilder();
-        for (String d : devices) {
-            if (cmd.length() > 0) cmd.append(' ');
-            cmd.append(d);
-        }
-        String shell = "for d in " + cmd + "; do getevent -t \"$d\" & done; wait";
+        // No device argument: every key source (IR, keyboard, consumer buttons).
+        // A fixed eventN list missed the remote's app buttons after boot.
+        String shell = "getevent -t";
         int attempt = 0;
         while (running.get()) {
             Process proc = null;

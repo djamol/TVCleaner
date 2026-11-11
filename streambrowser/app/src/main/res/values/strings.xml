@@ -32,6 +32,14 @@
     <string name="menu_forward">Forward</string>
     <string name="menu_keyboard">Keyboard</string>
     <string name="menu_voice">Voice type</string>
+    <string name="menu_downloads">Downloads</string>
+    <string name="downloads_title">Downloads</string>
+    <string name="downloads_empty">No downloads yet. Start one from a page, then open it here.</string>
+    <string name="download_started">Downloading %1$s</string>
+    <string name="download_failed">Could not start download</string>
+    <string name="download_unsupported">This link can\'t be saved</string>
+    <string name="download_not_ready">Download isn\'t finished yet</string>
+    <string name="download_open_failed">Nothing on the TV can open this file</string>
     <string name="keyboard_shown">Keyboard shown · type with remote</string>
     <string name="keyboard_hidden">Keyboard hidden · mouse mode</string>
     <string name="voice_listening">Listening… speak now</string>

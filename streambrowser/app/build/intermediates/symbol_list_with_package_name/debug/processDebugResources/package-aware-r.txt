@@ -127,6 +127,7 @@ id blocking
 id browser_root
 id btn_add_site
 id btn_back_page
+id btn_downloads
 id btn_forward
 id btn_home
 id btn_keyboard
@@ -135,6 +136,8 @@ id btn_voice
 id chronometer
 id dialog_button
 id dialog_heading
+id downloads_empty
+id downloads_list
 id forever
 id fullscreen_container
 id icon
@@ -175,6 +178,7 @@ id tv_cursor
 id webview
 integer status_bar_notification_info_maxnum
 layout activity_browser
+layout activity_downloads
 layout activity_home
 layout custom_dialog
 layout dialog_add_site
@@ -201,6 +205,13 @@ string add_site_url_hint
 string app_name
 string banner_open
 string blocked_popup
+string download_failed
+string download_not_ready
+string download_open_failed
+string download_started
+string download_unsupported
+string downloads_empty
+string downloads_title
 string edit_site_failed
 string edit_site_ok
 string edit_site_title
@@ -211,6 +222,7 @@ string keyboard_hidden
 string keyboard_shown
 string loading
 string menu_back
+string menu_downloads
 string menu_forward
 string menu_home
 string menu_keyboard

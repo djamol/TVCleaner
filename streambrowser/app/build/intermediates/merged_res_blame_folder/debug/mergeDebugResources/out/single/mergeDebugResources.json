@@ -40,12 +40,12 @@
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-main-8:\\drawable\\banner.png"
     },
     {
-        "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\layout_item_site_tile.xml.flat",
-        "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-main-8:\\layout\\item_site_tile.xml"
-    },
-    {
         "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\drawable_banner_scrim.xml.flat",
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-main-8:\\drawable\\banner_scrim.xml"
+    },
+    {
+        "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\layout_item_site_tile.xml.flat",
+        "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-main-8:\\layout\\item_site_tile.xml"
     },
     {
         "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\layout_activity_browser.xml.flat",
@@ -82,6 +82,10 @@
     {
         "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\drawable-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-main-8:\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "com.patilweb.streambrowser.app-debug-6:/layout_activity_downloads.xml.flat",
+        "source": "com.patilweb.streambrowser.app-main-8:/layout/activity_downloads.xml"
     },
     {
         "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.streambrowser.app-debug-6:\\drawable_menu_btn_bg.xml.flat",

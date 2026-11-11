@@ -8,10 +8,6 @@
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvremap.app-main-6:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.patilweb.tvremap.app-debug-4:/drawable_ic_launcher.png.flat",
-        "source": "com.patilweb.tvremap.app-main-6:/drawable/ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvremap.app-debug-4:\\layout_item_row.xml.flat",
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvremap.app-main-6:\\layout\\item_row.xml"
     },
@@ -32,8 +28,8 @@
         "source": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvremap.app-main-6:\\xml\\remap_service.xml"
     },
     {
-        "merged": "com.patilweb.tvremap.app-debug-4:/drawable_banner.png.flat",
-        "source": "com.patilweb.tvremap.app-main-6:/drawable/banner.png"
+        "merged": "com.patilweb.tvremap.app-debug-4:/xml_remap_service.xml.flat",
+        "source": "com.patilweb.tvremap.app-main-6:/xml/remap_service.xml"
     },
     {
         "merged": "C:\\Users\\amolp\\.gradle\\daemon\\8.9\\com.patilweb.tvremap.app-debug-4:\\layout_activity_capture.xml.flat",

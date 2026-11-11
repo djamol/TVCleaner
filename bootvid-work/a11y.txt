@@ -1,0 +1,25 @@
+ACCESSIBILITY MANAGER (dumpsys accessibility)
+
+currentUserId=0
+hasWindowMagnificationConnection=false
+User state[
+     attributes:{id=0, touchExplorationEnabled=false, serviceHandlesDoubleTap=false, requestMultiFingerGestures=false, requestTwoFingerPassthrough=false, sendMotionEventsEnabledfalse, displayMagnificationEnabled=false, autoclickEnabled=false, nonInteractiveUiTimeout=0, interactiveUiTimeout=0, installedServiceCount=2, magnificationMode=1, magnificationCapabilities=3}
+     shortcut key:{}
+     button:{}
+     button target:{null}
+     Bound services:{}
+     Enabled services:{{com.patilweb.tvremap/com.patilweb.tvremap.RemapService}}
+     Binding services:{}
+     Crashed services:{}
+     Client list info:{
+          Client list callbacks: 4
+          Client list killed: false
+          Client list broadcasts count: -1
+          Registered clients:{
+[com.patilweb.streambrowser][com.google.android.katniss][com.liskovsoft.leankeyboard][com.google.android.tvlauncher]}]
+Global client list info:{
+    Client list callbacks: 3
+    Client list killed: false
+    Client list broadcasts count: -1
+    Registered clients:{
+[com.elebao.update, com.ald.apkmanage, com.android.tv.settings, com.ald.atvapplist, com.ald.ccs, com.ald.btauto, com.ald.appstore, com.DeviceTest, com.android.keychain, com.oranth.memoryclean, com.android.wallpaperbackup, com.softwinner.miracastReceiver, android, com.android.location.fused, com.android.localtransport, com.android.dynsystem, com.softwinner.dragonbox, com.softwinner.agingdragonbox, com.ald.tvmouse, com.android.providers.settings, com.android.inputdevices][com.softwinner.screenshot, com.android.systemui][com.elebao.update, com.ald.apkmanage, com.android.tv.settings, com.ald.atvapplist, com.ald.ccs, com.ald.btauto, com.ald.appstore, com.DeviceTest, com.android.keychain, com.oranth.memoryclean, com.android.wallpaperbackup, com.softwinner.miracastReceiver, android, com.android.location.fused, com.android.localtransport, com.android.dynsystem, com.softwinner.dragonbox, com.softwinner.agingdragonbox, com.ald.tvmouse, com.android.providers.settings, com.android.inputdevices]

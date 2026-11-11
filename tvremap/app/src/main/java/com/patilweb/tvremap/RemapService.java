@@ -25,6 +25,17 @@ public class RemapService extends AccessibilityService implements ActionRunner.H
         super.onServiceConnected();
         ensureFilterFlags();
         engine = new GestureEngine(this, this::onGesture);
+        // Root listener is what survives when this service is late to bind.
+        Intent root = new Intent(this, RootKeyService.class);
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= 26) {
+                startForegroundService(root);
+            } else {
+                startService(root);
+            }
+        } catch (RuntimeException e) {
+            Log.e(TAG, "root listener start failed", e);
+        }
         Log.i(TAG, "connected, key filter on");
     }
 

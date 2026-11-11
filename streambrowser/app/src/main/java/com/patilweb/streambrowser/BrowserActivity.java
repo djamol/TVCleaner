@@ -226,6 +226,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         Button btnReload = findViewById(R.id.btn_reload);
         Button btnKeyboard = findViewById(R.id.btn_keyboard);
         Button btnVoice = findViewById(R.id.btn_voice);
+        Button btnDownloads = findViewById(R.id.btn_downloads);
         Button btnHome = findViewById(R.id.btn_home);
 
         btnBack.setOnClickListener(v -> {
@@ -247,6 +248,10 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         btnVoice.setOnClickListener(v -> {
             hideMenu();
             toggleVoiceTyping();
+        });
+        btnDownloads.setOnClickListener(v -> {
+            hideMenu();
+            startActivity(new android.content.Intent(this, DownloadsActivity.class));
         });
         btnHome.setOnClickListener(v -> finish());
 
@@ -439,6 +444,9 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
                 if (!keyboardVisible) restoreMouseMode();
             }
         });
+
+        webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) ->
+                Downloads.enqueue(this, url, userAgent, contentDisposition, mimeType));
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
