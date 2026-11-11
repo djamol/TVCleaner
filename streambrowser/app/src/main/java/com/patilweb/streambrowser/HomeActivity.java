@@ -70,6 +70,8 @@ public class HomeActivity extends Activity {
         tileRows = findViewById(R.id.tile_rows);
         dotsRow = findViewById(R.id.banner_dots);
 
+        findViewById(R.id.btn_downloads).setOnClickListener(v ->
+                startActivity(new Intent(this, DownloadsActivity.class)));
         findViewById(R.id.btn_add_site).setOnClickListener(v -> showSiteDialog(null));
 
         bannerFrame.setOnClickListener(v -> {

@@ -1,9 +1,10 @@
 package com.patilweb.streambrowser;
 
 import android.app.Activity;
-import android.app.DownloadManager;
-import android.database.Cursor;
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +14,25 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-/** Lists files saved by the system Download Manager. OK opens the finished file. */
+/** Manage downloads: open, pause, resume, cancel, and delete. */
 public class DownloadsActivity extends Activity {
 
-    private final List<Row> rows = new ArrayList<>();
+    private final List<DownloadRecord> rows = new ArrayList<>();
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private RowAdapter adapter;
     private TextView empty;
+    private boolean visible;
+
+    private final Runnable refresh = new Runnable() {
+        @Override
+        public void run() {
+            if (!visible) return;
+            load();
+            handler.postDelayed(this, 800);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +42,23 @@ public class DownloadsActivity extends Activity {
         ListView list = findViewById(R.id.downloads_list);
         adapter = new RowAdapter();
         list.setAdapter(adapter);
-        list.setOnItemClickListener((parent, view, position, id) -> {
-            Row row = rows.get(position);
-            if (row.status == DownloadManager.STATUS_SUCCESSFUL) {
-                Downloads.open(this, row.id);
-            }
-        });
+        list.setOnItemClickListener((parent, view, position, id) -> manage(rows.get(position)));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        visible = true;
         load();
+        handler.removeCallbacks(refresh);
+        handler.postDelayed(refresh, 800);
+    }
+
+    @Override
+    protected void onPause() {
+        visible = false;
+        handler.removeCallbacks(refresh);
+        super.onPause();
     }
 
     @Override
@@ -54,52 +72,73 @@ public class DownloadsActivity extends Activity {
 
     private void load() {
         rows.clear();
-        DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-        if (dm != null) {
-            Cursor c = dm.query(new DownloadManager.Query());
-            if (c != null) {
-                try {
-                    int idCol = c.getColumnIndex(DownloadManager.COLUMN_ID);
-                    int titleCol = c.getColumnIndex(DownloadManager.COLUMN_TITLE);
-                    int statusCol = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
-                    int soFarCol = c.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR);
-                    int totalCol = c.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES);
-                    while (c.moveToNext()) {
-                        Row row = new Row();
-                        row.id = c.getLong(idCol);
-                        row.title = c.getString(titleCol);
-                        if (row.title == null || row.title.isEmpty()) row.title = "Download";
-                        row.status = c.getInt(statusCol);
-                        row.soFar = c.getLong(soFarCol);
-                        row.total = c.getLong(totalCol);
-                        rows.add(row);
-                    }
-                } finally {
-                    c.close();
-                }
-            }
-        }
+        rows.addAll(DownloadStore.all(this));
         empty.setVisibility(rows.isEmpty() ? View.VISIBLE : View.GONE);
         adapter.notifyDataSetChanged();
     }
 
-    private String statusText(Row row) {
-        switch (row.status) {
-            case DownloadManager.STATUS_SUCCESSFUL:
-                return "Ready · OK to open";
-            case DownloadManager.STATUS_FAILED:
-                return "Failed";
-            case DownloadManager.STATUS_PAUSED:
-                return "Paused";
-            case DownloadManager.STATUS_PENDING:
-                return "Waiting";
-            default:
-                if (row.total > 0) {
-                    int pct = (int) (row.soFar * 100L / row.total);
-                    return "Downloading " + pct + "%";
-                }
-                return "Downloading";
+    private void manage(DownloadRecord record) {
+        List<String> labels = new ArrayList<>();
+        List<Runnable> actions = new ArrayList<>();
+        if (DownloadRecord.DONE.equals(record.status)) {
+            labels.add(getString(R.string.download_open));
+            actions.add(() -> Downloads.open(this, DownloadStore.get(this, record.id)));
         }
+        if (DownloadRecord.RUNNING.equals(record.status)
+                || DownloadRecord.QUEUED.equals(record.status)) {
+            labels.add(getString(R.string.download_pause));
+            actions.add(() -> DownloadEngine.pause(this, record.id));
+        }
+        if (DownloadRecord.PAUSED.equals(record.status)
+                || DownloadRecord.FAILED.equals(record.status)) {
+            labels.add(getString(R.string.download_resume));
+            actions.add(() -> DownloadEngine.resume(this, record.id));
+        }
+        labels.add(getString(R.string.download_delete));
+        actions.add(() -> {
+            DownloadEngine.delete(this, record.id);
+            load();
+        });
+        new AlertDialog.Builder(this)
+                .setTitle(record.name)
+                .setItems(labels.toArray(new String[0]), (dialog, which) -> {
+                    actions.get(which).run();
+                    load();
+                })
+                .show();
+    }
+
+    private String detail(DownloadRecord record) {
+        String state;
+        switch (record.status) {
+            case DownloadRecord.DONE:
+                state = "Ready · OK to open";
+                break;
+            case DownloadRecord.PAUSED:
+                state = "Paused";
+                break;
+            case DownloadRecord.FAILED:
+                state = "Failed";
+                break;
+            case DownloadRecord.QUEUED:
+                state = "Waiting";
+                break;
+            default:
+                int pct = record.percent();
+                state = pct >= 0 ? "Downloading " + pct + "%" : "Downloading";
+                break;
+        }
+        return record.threads() + (record.threads() == 1 ? " thread" : " threads")
+                + " · " + bytes(record.downloaded())
+                + (record.total > 0 ? " / " + bytes(record.total) : "")
+                + " · " + state;
+    }
+
+    private static String bytes(long n) {
+        if (n < 1024) return n + " B";
+        if (n < 1024 * 1024) return String.format(Locale.US, "%.1f KB", n / 1024.0);
+        if (n < 1024L * 1024 * 1024) return String.format(Locale.US, "%.1f MB", n / (1024.0 * 1024));
+        return String.format(Locale.US, "%.2f GB", n / (1024.0 * 1024 * 1024));
     }
 
     private final class RowAdapter extends BaseAdapter {
@@ -115,7 +154,7 @@ public class DownloadsActivity extends Activity {
 
         @Override
         public long getItemId(int position) {
-            return rows.get(position).id;
+            return position;
         }
 
         @Override
@@ -124,25 +163,17 @@ public class DownloadsActivity extends Activity {
             if (row == null) {
                 row = getLayoutInflater().inflate(android.R.layout.simple_list_item_2, parent, false);
             }
+            DownloadRecord item = rows.get(position);
             TextView t1 = row.findViewById(android.R.id.text1);
             TextView t2 = row.findViewById(android.R.id.text2);
-            Row item = rows.get(position);
-            t1.setText(item.title);
+            t1.setText(item.name);
             t1.setTextColor(0xFFFFFFFF);
-            t2.setText(statusText(item));
+            t2.setText(detail(item));
             t2.setTextColor(0xFFB7C3D0);
             row.setBackgroundColor(0xFF151922);
             int pad = Math.round(12 * getResources().getDisplayMetrics().density);
             row.setPadding(pad, pad, pad, pad);
             return row;
         }
-    }
-
-    private static final class Row {
-        long id;
-        String title;
-        int status;
-        long soFar;
-        long total;
     }
 }

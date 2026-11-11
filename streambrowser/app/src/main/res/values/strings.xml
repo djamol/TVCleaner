@@ -34,7 +34,11 @@
     <string name="menu_voice">Voice type</string>
     <string name="menu_downloads">Downloads</string>
     <string name="downloads_title">Downloads</string>
-    <string name="downloads_empty">No downloads yet. Start one from a page, then open it here.</string>
+    <string name="downloads_empty">No downloads yet. Start one from a page, then manage it here.</string>
+    <string name="download_open">Open</string>
+    <string name="download_pause">Pause</string>
+    <string name="download_resume">Resume</string>
+    <string name="download_delete">Delete</string>
     <string name="download_started">Downloading %1$s</string>
     <string name="download_failed">Could not start download</string>
     <string name="download_unsupported">This link can\'t be saved</string>

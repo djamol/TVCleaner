@@ -46,6 +46,18 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btn_downloads"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/menu_btn_bg"
+                android:focusable="true"
+                android:minWidth="140dp"
+                android:text="@string/menu_downloads"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary" />
+
+            <Button
                 android:id="@+id/btn_add_site"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"

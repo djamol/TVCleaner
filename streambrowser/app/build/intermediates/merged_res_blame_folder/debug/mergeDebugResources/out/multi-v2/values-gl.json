@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "com.patilweb.streambrowser.app-mergeDebugResources-4:/values-gl/values-gl.xml",
+            "outputFile": "com.patilweb.streambrowser.app-mergeDebugResources-9:/values-gl/values-gl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\60926acacdab7db78d8d06911fed0592\\transformed\\core-1.1.0\\res\\values-gl\\values-gl.xml",
+                    "source": "C:\\Users\\amolp\\.gradle\\caches\\8.9\\transforms\\1c3eba2ff83689054fd06d61b1cd9f78\\transformed\\core-1.13.1\\res\\values-gl\\values-gl.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,256,356,454,561,667,783",
+                        "endColumns": "98,101,99,97,106,105,115,100",
+                        "endOffsets": "149,251,351,449,556,662,778,879"
                     }
                 }
             ]

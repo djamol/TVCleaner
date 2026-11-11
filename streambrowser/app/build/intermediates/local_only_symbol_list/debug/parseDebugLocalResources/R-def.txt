@@ -82,9 +82,13 @@ string add_site_url_hint
 string app_name
 string banner_open
 string blocked_popup
+string download_delete
 string download_failed
 string download_not_ready
+string download_open
 string download_open_failed
+string download_pause
+string download_resume
 string download_started
 string download_unsupported
 string downloads_empty
@@ -138,4 +142,5 @@ string voice_need_mic
 string voice_stopped
 string voice_unavailable
 style Theme.StreamBrowser
+xml file_paths
 xml module_card

@@ -32,12 +32,16 @@
     <string name="app_name">Stream TV</string>
     <string name="banner_open">OPEN</string>
     <string name="blocked_popup">Popup blocked</string>
+    <string name="download_delete">Delete</string>
     <string name="download_failed">Could not start download</string>
     <string name="download_not_ready">Download isn\'t finished yet</string>
+    <string name="download_open">Open</string>
     <string name="download_open_failed">Nothing on the TV can open this file</string>
+    <string name="download_pause">Pause</string>
+    <string name="download_resume">Resume</string>
     <string name="download_started">Downloading %1$s</string>
     <string name="download_unsupported">This link can\'t be saved</string>
-    <string name="downloads_empty">No downloads yet. Start one from a page, then open it here.</string>
+    <string name="downloads_empty">No downloads yet. Start one from a page, then manage it here.</string>
     <string name="downloads_title">Downloads</string>
     <string name="edit_site_failed">Could not save site</string>
     <string name="edit_site_ok">Save</string>
