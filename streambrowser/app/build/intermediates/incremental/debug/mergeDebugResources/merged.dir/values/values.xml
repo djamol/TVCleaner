@@ -117,6 +117,9 @@
     <string name="app_name">Stream TV</string>
     <string name="banner_open">OPEN</string>
     <string name="blocked_popup">Popup blocked</string>
+    <string name="bookmark_added">Bookmark added</string>
+    <string name="bookmark_exists">That page is already saved</string>
+    <string name="bookmark_failed">Couldn\'t add bookmark</string>
     <string name="call_notification_answer_action">Answer</string>
     <string name="call_notification_answer_video_action">Video</string>
     <string name="call_notification_decline_action">Decline</string>
@@ -145,11 +148,17 @@
     <string name="keyboard_shown">Keyboard shown · type with remote</string>
     <string name="loading">Loading…</string>
     <string name="menu_back">Back page</string>
+    <string name="menu_bookmark">Add bookmark</string>
+    <string name="menu_context_hint">Hold OK anywhere</string>
+    <string name="menu_context_title">Page menu</string>
     <string name="menu_downloads">Downloads</string>
     <string name="menu_forward">Forward</string>
+    <string name="menu_hard">Hard reload</string>
     <string name="menu_home">Home</string>
     <string name="menu_keyboard">Keyboard</string>
+    <string name="menu_refresh">Refresh page</string>
     <string name="menu_reload">Reload</string>
+    <string name="menu_stop">Stop loading</string>
     <string name="menu_voice">Voice type</string>
     <string name="mic_ready">Microphone ready for audio sites</string>
     <string name="move_failed">Already at the end</string>
@@ -184,6 +193,19 @@
     <string name="voice_need_mic">Allow microphone to use voice typing</string>
     <string name="voice_stopped">Voice typing stopped</string>
     <string name="voice_unavailable">Speech recognition not available on this TV</string>
+    <style name="ContextMenuButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:background">@drawable/menu_btn_bg</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
     <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/>
     <style name="TextAppearance.Compat.Notification.Info">
         <item name="android:textSize">12sp</item>
@@ -232,23 +254,14 @@
         <attr format="reference" name="fontProviderCerts"/>
         
         <attr name="fontProviderFetchStrategy">
-            <!-- The blocking font fetch works as follows.
-              First, check the local cache, then if the requested font is not cached, request the
-              font from the provider and wait until it is finished.  You can change the length of
-              the timeout by modifying fontProviderFetchTimeout.  If the timeout happens, the
-              default typeface will be used instead. -->
+            
             <enum name="blocking" value="0"/>
-            <!-- The async font fetch works as follows.
-              First, check the local cache, then if the requeted font is not cached, trigger a
-              request the font and continue with layout inflation. Once the font fetch succeeds, the
-              target text view will be refreshed with the downloaded font data. The
-              fontProviderFetchTimeout will be ignored if async loading is specified. -->
+            
             <enum name="async" value="1"/>
         </attr>
         
         <attr format="integer" name="fontProviderFetchTimeout">
-            <!-- A special value for the timeout. In this case, the blocking font fetching will not
-              timeout and wait until a reply is received from the font provider. -->
+            
             <enum name="forever" value="-1"/>
         </attr>
         

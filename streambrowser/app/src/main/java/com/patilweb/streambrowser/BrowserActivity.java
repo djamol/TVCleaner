@@ -50,6 +50,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     private TvCursorView cursor;
     private ProgressBar progress;
     private View menuBar;
+    private View contextMenu;
     private EditText imeBridge;
     private FrameLayout fullscreenContainer;
     private View customView;
@@ -60,11 +61,21 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
     private SpeechHelper speechHelper;
     private boolean aggressive;
     private boolean menuVisible;
+    private boolean contextMenuVisible;
+    private boolean clickHeld;
+    private boolean longPressOpened;
+    private boolean hardReload;
+    private static final long HOLD_MENU_MS = 480L;
     private boolean keyboardVisible;
     private boolean syncingBridge;
     private boolean voiceListening;
     private String currentPageUrl = "";
     private final Handler handler = new Handler(Looper.getMainLooper());
+    private final Runnable openContextFromHold = () -> {
+        if (!clickHeld || longPressOpened || contextMenuVisible) return;
+        longPressOpened = true;
+        showContextMenu();
+    };
 
     /** Unmute HTML5 / common players that start muted for autoplay policies. */
     private static final String UNMUTE_JS =
@@ -215,6 +226,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         cursor = findViewById(R.id.tv_cursor);
         progress = findViewById(R.id.progress);
         menuBar = findViewById(R.id.menu_bar);
+        contextMenu = findViewById(R.id.context_menu);
         imeBridge = findViewById(R.id.ime_bridge);
         fullscreenContainer = findViewById(R.id.fullscreen_container);
         cursor.attach(webView);
@@ -254,6 +266,30 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
             startActivity(new android.content.Intent(this, DownloadsActivity.class));
         });
         btnHome.setOnClickListener(v -> finish());
+
+        findViewById(R.id.ctx_bookmark).setOnClickListener(v -> addBookmark());
+        findViewById(R.id.ctx_refresh).setOnClickListener(v -> {
+            if (webView != null) webView.reload();
+            hideContextMenu();
+        });
+        findViewById(R.id.ctx_hard).setOnClickListener(v -> hardReload());
+        findViewById(R.id.ctx_back).setOnClickListener(v -> {
+            if (webView != null && webView.canGoBack()) webView.goBack();
+            hideContextMenu();
+        });
+        findViewById(R.id.ctx_forward).setOnClickListener(v -> {
+            if (webView != null && webView.canGoForward()) webView.goForward();
+            hideContextMenu();
+        });
+        findViewById(R.id.ctx_stop).setOnClickListener(v -> {
+            if (webView != null) webView.stopLoading();
+            hideContextMenu();
+        });
+        findViewById(R.id.ctx_keyboard).setOnClickListener(v -> {
+            hideContextMenu();
+            toggleKeyboard();
+        });
+        findViewById(R.id.ctx_home).setOnClickListener(v -> finish());
 
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         speechHelper = new SpeechHelper(this);
@@ -440,6 +476,10 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
             public void onPageFinished(WebView view, String url) {
                 if (url != null) currentPageUrl = url;
                 progress.setVisibility(View.GONE);
+                if (hardReload) {
+                    hardReload = false;
+                    view.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+                }
                 injectPageScripts();
                 if (!keyboardVisible) restoreMouseMode();
             }
@@ -741,7 +781,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
             webView.setFocusableInTouchMode(false);
             webView.clearFocus();
         }
-        if (!isFullscreen() && !menuVisible && cursor != null) {
+        if (!isFullscreen() && !menuVisible && !contextMenuVisible && cursor != null) {
             cursor.setVisibility(View.VISIBLE);
             cursor.requestFocus();
         }
@@ -805,6 +845,54 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
         }
     }
 
+    private void addBookmark() {
+        if (webView == null) return;
+        String url = webView.getUrl();
+        if (url == null || url.isEmpty()) url = currentPageUrl;
+        String title = webView.getTitle();
+        boolean added = url != null && !url.isEmpty() && new SiteStore(this).addCustom(title, url);
+        int message = (url == null || url.isEmpty()) ? R.string.bookmark_failed
+                : (added ? R.string.bookmark_added : R.string.bookmark_exists);
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        hideContextMenu();
+    }
+
+    private void hardReload() {
+        if (webView == null) return;
+        hardReload = true;
+        webView.clearCache(true);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.reload();
+        hideContextMenu();
+    }
+
+    private void showContextMenu() {
+        if (contextMenu == null) return;
+        contextMenuVisible = true;
+        if (keyboardVisible) hideKeyboard();
+        if (menuVisible) hideMenu();
+        if (cursor != null) cursor.setVisibility(View.INVISIBLE);
+        contextMenu.setVisibility(View.VISIBLE);
+        View first = findViewById(R.id.ctx_bookmark);
+        if (first != null) first.requestFocus();
+    }
+
+    private void hideContextMenu() {
+        contextMenuVisible = false;
+        clickHeld = false;
+        longPressOpened = false;
+        handler.removeCallbacks(openContextFromHold);
+        if (contextMenu != null) contextMenu.setVisibility(View.GONE);
+        if (!isFullscreen() && !keyboardVisible && !menuVisible) restoreMouseMode();
+    }
+
+    private void armHoldMenu() {
+        clickHeld = true;
+        longPressOpened = false;
+        handler.removeCallbacks(openContextFromHold);
+        handler.postDelayed(openContextFromHold, HOLD_MENU_MS);
+    }
+
     private void toggleMenu() {
         if (isFullscreen()) return;
         if (menuVisible) hideMenu();
@@ -841,17 +929,47 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
                 || keyCode == KeyEvent.KEYCODE_TV_CONTENTS_MENU
                 || keyCode == KeyEvent.KEYCODE_GUIDE) {
             if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
-                toggleMenu();
+                if (contextMenuVisible) hideContextMenu();
+                else toggleMenu();
             }
             return true;
         }
 
+        // Hold OK / Enter anywhere (page or fullscreen) to open the page menu.
+        // A short press still clicks the page.
+        if (!keyboardVisible && !menuVisible && TvCursorView.isClick(keyCode)) {
+            if (contextMenuVisible) {
+                if (clickHeld || longPressOpened) {
+                    if (event.getAction() == KeyEvent.ACTION_UP) {
+                        clickHeld = false;
+                        longPressOpened = false;
+                    }
+                    return true;
+                }
+            } else if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
+                armHoldMenu();
+                if (!isFullscreen()) return true;
+            } else if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                if (!isFullscreen()) return true;
+            } else if (event.getAction() == KeyEvent.ACTION_UP) {
+                handler.removeCallbacks(openContextFromHold);
+                boolean opened = longPressOpened;
+                clickHeld = false;
+                longPressOpened = false;
+                if (opened) return true;
+                if (!isFullscreen() && cursor != null) {
+                    cursor.clickAtCursor();
+                    return true;
+                }
+            }
+        }
+
         // While the IME bridge is up, let keys go to the EditText / IME.
-        if (keyboardVisible && !menuVisible && !isFullscreen()) {
+        if (keyboardVisible && !menuVisible && !contextMenuVisible && !isFullscreen()) {
             return super.dispatchKeyEvent(event);
         }
 
-        if (!menuVisible && !isFullscreen() && cursor != null
+        if (!menuVisible && !contextMenuVisible && !isFullscreen() && cursor != null
                 && cursor.getVisibility() == View.VISIBLE
                 && (TvCursorView.isDpad(keyCode) || TvCursorView.isClick(keyCode))) {
             if (!cursor.hasFocus()) cursor.requestFocus();
@@ -880,6 +998,10 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
                                 + "catch(e){}})();",
                         null);
                 exitFullscreen();
+                return true;
+            }
+            if (contextMenuVisible) {
+                hideContextMenu();
                 return true;
             }
             if (menuVisible) {
@@ -914,6 +1036,7 @@ public class BrowserActivity extends Activity implements TvCursorView.Listener {
 
     @Override
     protected void onDestroy() {
+        handler.removeCallbacks(openContextFromHold);
         handler.removeCallbacksAndMessages(null);
         if (speechHelper != null) {
             speechHelper.destroy();

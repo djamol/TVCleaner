@@ -33,6 +33,15 @@
     <string name="menu_keyboard">Keyboard</string>
     <string name="menu_voice">Voice type</string>
     <string name="menu_downloads">Downloads</string>
+    <string name="menu_context_title">Page menu</string>
+    <string name="menu_context_hint">Hold OK anywhere</string>
+    <string name="menu_bookmark">Add bookmark</string>
+    <string name="menu_refresh">Refresh page</string>
+    <string name="menu_hard">Hard reload</string>
+    <string name="menu_stop">Stop loading</string>
+    <string name="bookmark_added">Bookmark added</string>
+    <string name="bookmark_exists">That page is already saved</string>
+    <string name="bookmark_failed">Couldn\'t add bookmark</string>
     <string name="downloads_title">Downloads</string>
     <string name="downloads_empty">No downloads yet. Start one from a page, then manage it here.</string>
     <string name="download_open">Open</string>

@@ -184,7 +184,7 @@ public class TvCursorView extends View {
         invalidate();
     }
 
-    private void clickAtCursor() {
+    public void clickAtCursor() {
         if (webView == null) return;
         final float x = tipX();
         final float y = tipY();

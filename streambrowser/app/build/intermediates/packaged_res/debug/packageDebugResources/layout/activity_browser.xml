@@ -156,4 +156,80 @@
             android:textAllCaps="false"
             android:textColor="@color/text_primary" />
     </LinearLayout>
+
+    <!-- Hold OK anywhere: same idea as a desktop right-click. -->
+    <ScrollView
+        android:id="@+id/context_menu"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#F0151922"
+        android:fillViewport="true"
+        android:focusable="false"
+        android:padding="14dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="@string/menu_context_title"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:text="@string/menu_context_hint"
+                android:textColor="#FF8FA3BF"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/ctx_bookmark"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_bookmark" />
+
+            <Button
+                android:id="@+id/ctx_refresh"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_refresh" />
+
+            <Button
+                android:id="@+id/ctx_hard"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_hard" />
+
+            <Button
+                android:id="@+id/ctx_back"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_back" />
+
+            <Button
+                android:id="@+id/ctx_forward"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_forward" />
+
+            <Button
+                android:id="@+id/ctx_stop"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_stop" />
+
+            <Button
+                android:id="@+id/ctx_keyboard"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_keyboard" />
+
+            <Button
+                android:id="@+id/ctx_home"
+                style="@style/ContextMenuButton"
+                android:text="@string/menu_home" />
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
