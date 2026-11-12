@@ -1,0 +1,112 @@
+    #1              : (in Lbtd;)
+      name          : 'g'
+      type          : '(Lbty;I)V'
+      access        : 0x0012 (PRIVATE FINAL)
+      code          -
+      registers     : 4
+      ins           : 3
+      outs          : 2
+      insns size    : 18 16-bit code units
+183824:                                        |[183824] btd.g:(Lbty;I)V
+183834: 5210 3c13                              |0000: iget v0, v1, Lbtd;.e:I // field@133c
+183838: d800 0001                              |0002: add-int/lit8 v0, v0, #int 1 // #01
+18383c: 5910 3c13                              |0004: iput v0, v1, Lbtd;.e:I // field@133c
+183840: 5411 3a13                              |0006: iget-object v1, v1, Lbtd;.c:Lbte; // field@133a
+183844: 5210 4313                              |0008: iget v0, v1, Lbte;.e:I // field@1343
+183848: d800 0001                              |000a: add-int/lit8 v0, v0, #int 1 // #01
+18384c: 5910 4313                              |000c: iput v0, v1, Lbte;.e:I // field@1343
+183850: 6e20 e425 3200                         |000e: invoke-virtual {v2, v3}, Lbty;.b:(I)V // method@25e4
+183856: 0e00                                   |0011: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+        0x0006 line=7
+        0x0007 line=8
+        0x0008 line=9
+        0x0009 line=10
+        0x000a line=11
+        0x000b line=12
+        0x000c line=13
+        0x000d line=14
+        0x000e line=15
+        0x000f line=16
+        0x0010 line=17
+        0x0011 line=18
+      locals        :
+        0x0000 - 0x0012 reg=1 this Lbtd;
+        0x0000 - 0x0012 reg=2 (null) Lbty;
+        0x0000 - 0x0012 reg=3 (null) I
+
+
+----
+    #5              : (in Lbtd;)
+      name          : 'f'
+      type          : '(Lcby;)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 5
+      ins           : 2
+      outs          : 3
+      insns size    : 27 16-bit code units
+183790:                                        |[183790] btd.f:(Lcby;)V
+1837a0: 5230 3c13                              |0000: iget v0, v3, Lbtd;.e:I // field@133c
+1837a4: 7110 c955 0000                         |0002: invoke-static {v0}, Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer; // method@55c9
+1837aa: 0c00                                   |0005: move-result-object v0
+1837ac: 5233 3d13                              |0006: iget v3, v3, Lbtd;.f:I // field@133d
+1837b0: 7110 c955 0300                         |0008: invoke-static {v3}, Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer; // method@55c9
+1837b6: 0c03                                   |000b: move-result-object v3
+1837b8: 1221                                   |000c: const/4 v1, #int 2 // #2
+1837ba: 2311 fa12                              |000d: new-array v1, v1, [Ljava/lang/Object; // type@12fa
+1837be: 1202                                   |000f: const/4 v2, #int 0 // #0
+1837c0: 4d00 0102                              |0010: aput-object v0, v1, v2
+1837c4: 1210                                   |0012: const/4 v0, #int 1 // #1
+1837c6: 4d03 0100                              |0013: aput-object v3, v1, v0
+1837ca: 1a03 290f                              |0015: const-string v3, "Keys injected %d/%d%n" // string@0f29
+1837ce: 6e30 2329 3401                         |0017: invoke-virtual {v4, v3, v1}, Lcby;.c:(Ljava/lang/String;[Ljava/lang/Object;)V // method@2923
+1837d4: 0e00                                   |001a: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+        0x0006 line=7
+        0x0007 line=8
+        0x0008 line=9
+        0x0009 line=10
+        0x000a line=11
+        0x000b line=12
+        0x000c line=13
+        0x000d line=14
+        0x000e line=15
+        0x000f line=16
+        0x0010 line=17
+        0x0011 line=18
+        0x0012 line=19
+        0x0013 line=20
+        0x0014 line=21
+        0x0015 line=22
+        0x0016 line=23
+        0x0017 line=24
+        0x0018 line=25
+        0x0019 line=26
+        0x001a line=27
+      locals        :
+        0x0000 - 0x001b reg=3 this Lbtd;
+        0x0000 - 0x001b reg=4 (null) Lcby;
+
+  source_file_idx   : 9051 (PG)
+
+Class #1396            -
+  Class descriptor  : 'Lbte;'
+  Access flags      : 0x0010 (FINAL)
+  Superclass        : 'Lbxm;'
+  Interfaces        -
+  Static fields     -
