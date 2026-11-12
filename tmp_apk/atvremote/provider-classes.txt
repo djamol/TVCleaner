@@ -1,0 +1,294 @@
+
+===== 'Lcug;' lines 125 =====
+  Class descriptor  : 'Lcug;'
+  Access flags      : 0x0401 (PUBLIC ABSTRACT)
+  Superclass        : 'Landroid/app/Service;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+  Direct methods    -
+    #0              : (in Lcug;)
+      name          : '<init>'
+      type          : '()V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 1
+      insns size    : 4 16-bit code units
+1d06a4:                                        |[1d06a4] cug.<init>:()V
+1d06b4: 7010 c506 0000                         |0000: invoke-direct {v0}, Landroid/app/Service;.<init>:()V // method@06c5
+1d06ba: 0e00                                   |0003: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+      locals        :
+        0x0000 - 0x0004 reg=0 this Lcug;
+
+  Virtual methods   -
+    #0              : (in Lcug;)
+      name          : 'onCreate'
+      type          : '()V'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 5
+      ins           : 1
+      outs          : 2
+      insns size    : 52 16-bit code units
+1d06bc:                                        |[1d06bc] cug.onCreate:()V
+1d06cc: 6e10 c606 0400                         |0000: invoke-virtual {v4}, Landroid/app/Service;.getApplication:()Landroid/app/Application; // method@06c6
+1d06d2: 0c00                                   |0003: move-result-object v0
+1d06d4: 2001 6c0a                              |0004: instance-of v1, v0, Lcuj; // type@0a6c
+1d06d8: 3801 0b00                              |0006: if-eqz v1, 0011 // +000b
+1d06dc: 1f00 6c0a                              |0008: check-cast v0, Lcuj; // type@0a6c
+1d06e0: 7120 2e49 0400                         |000a: invoke-static {v4, v0}, Ldzn;.bj:(Ljava/lang/Object;Lcuj;)V // method@492e
+1d06e6: 6f10 c906 0400                         |000d: invoke-super {v4}, Landroid/app/Service;.onCreate:()V // method@06c9
+1d06ec: 0e00                                   |0010: return-void
+1d06ee: 2204 9b0f                              |0011: new-instance v4, Ljava/lang/RuntimeException; // type@0f9b
+1d06f2: 6e10 1356 0000                         |0013: invoke-virtual {v0}, Ljava/lang/Object;.getClass:()Ljava/lang/Class; // method@5613
+1d06f8: 0c00                                   |0016: move-result-object v0
+1d06fa: 6e10 6f55 0000                         |0017: invoke-virtual {v0}, Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String; // method@556f
+1d0700: 0c00                                   |001a: move-result-object v0
+1d0702: 1c01 6c0a                              |001b: const-class v1, Lcuj; // type@0a6c
+1d0706: 6e10 6f55 0100                         |001d: invoke-virtual {v1}, Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String; // method@556f
+1d070c: 0c01                                   |0020: move-result-object v1
+1d070e: 1222                                   |0021: const/4 v2, #int 2 // #2
+1d0710: 2322 fa12                              |0022: new-array v2, v2, [Ljava/lang/Object; // type@12fa
+1d0714: 1203                                   |0024: const/4 v3, #int 0 // #0
+1d0716: 4d00 0203                              |0025: aput-object v0, v2, v3
+1d071a: 1210                                   |0027: const/4 v0, #int 1 // #1
+1d071c: 4d01 0200                              |0028: aput-object v1, v2, v0
+1d0720: 1a00 7402                              |002a: const-string v0, "%s does not implement %s" // string@0274
+1d0724: 7120 4356 2000                         |002c: invoke-static {v0, v2}, Ljava/lang/String;.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String; // method@5643
+1d072a: 0c00                                   |002f: move-result-object v0
+1d072c: 7020 2456 0400                         |0030: invoke-direct {v4, v0}, Ljava/lang/RuntimeException;.<init>:(Ljava/lang/String;)V // method@5624
+1d0732: 2704                                   |0033: throw v4
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+        0x0006 line=7
+        0x0007 line=8
+        0x0008 line=9
+        0x0009 line=10
+        0x000a line=11
+        0x000b line=12
+        0x000c line=13
+        0x000d line=14
+        0x000e line=15
+        0x000f line=16
+        0x0010 line=17
+        0x0011 line=18
+        0x0012 line=19
+        0x0013 line=20
+        0x0014 line=21
+        0x0015 line=22
+        0x0016 line=23
+        0x0017 line=24
+        0x0018 line=25
+        0x0019 line=26
+        0x001a line=27
+        0x001b line=28
+        0x001c line=29
+        0x001d line=30
+        0x001e line=31
+        0x001f line=32
+        0x0020 line=33
+        0x0021 line=34
+        0x0022 line=35
+        0x0023 line=36
+        0x0024 line=37
+        0x0025 line=38
+        0x0026 line=39
+        0x0027 line=40
+        0x0028 line=41
+        0x0029 line=42
+        0x002a line=43
+        0x002b line=44
+        0x002c line=45
+        0x002d line=46
+        0x002e line=47
+        0x002f line=48
+        0x0030 line=49
+        0x0031 line=50
+        0x0032 line=51
+        0x0033 line=52
+      locals        :
+        0x0000 - 0x0034 reg=4 this Lcug;
+
+  source_file_idx   : 9051 (PG)
+
+
+===== 'Lbyr;' lines 35 =====
+  Class descriptor  : 'Lbyr;'
+  Access flags      : 0x0011 (PUBLIC FINAL)
+  Superclass        : 'Lcom/android/media/tv/remoteprovider/TvRemoteProvider;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+  Direct methods    -
+  Virtual methods   -
+    #0              : (in Lbyr;)
+      name          : 'onInputBridgeConnected'
+      type          : '(Landroid/os/IBinder;)V'
+      access        : 0x0014 (PROTECTED FINAL)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 1
+      insns size    : 6 16-bit code units
+19771c:                                        |[19771c] byr.onInputBridgeConnected:(Landroid/os/IBinder;)V
+19772c: 1f01 d907                              |0000: check-cast v1, Lbyq; // type@07d9
+197730: 7210 e627 0100                         |0002: invoke-interface {v1}, Lbyq;.a:()V // method@27e6
+197736: 0e00                                   |0005: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+      locals        :
+        0x0000 - 0x0006 reg=0 this Lbyr;
+        0x0000 - 0x0006 reg=1 (null) Landroid/os/IBinder;
+
+  source_file_idx   : 9051 (PG)
+
+
+===== 'Lbys;' lines 128 =====
+  Class descriptor  : 'Lbys;'
+  Access flags      : 0x0011 (PUBLIC FINAL)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+  Static fields     -
+    #0              : (in Lbys;)
+      name          : 'a'
+      type          : 'Lcgs;'
+      access        : 0x0019 (PUBLIC STATIC FINAL)
+  Instance fields   -
+    #0              : (in Lbys;)
+      name          : 'b'
+      type          : 'Lbyr;'
+      access        : 0x0011 (PUBLIC FINAL)
+  Direct methods    -
+    #0              : (in Lbys;)
+      name          : '<clinit>'
+      type          : '()V'
+      access        : 0x10008 (STATIC CONSTRUCTOR)
+      code          -
+      registers     : 1
+      ins           : 0
+      outs          : 1
+      insns size    : 9 16-bit code units
+197738:                                        |[197738] bys.<clinit>:()V
+197748: 1a00 b52e                              |0000: const-string v0, "com/google/android/tv/remote/service/remoteprovider/LocalTvRemoteProvider" // string@2eb5
+19774c: 7110 9a2c 0000                         |0002: invoke-static {v0}, Lcgs;.k:(Ljava/lang/String;)Lcgs; // method@2c9a
+197752: 0c00                                   |0005: move-result-object v0
+197754: 6900 7215                              |0006: sput-object v0, Lbys;.a:Lcgs; // field@1572
+197758: 0e00                                   |0008: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+        0x0006 line=7
+        0x0007 line=8
+        0x0008 line=9
+      locals        :
+
+    #1              : (in Lbys;)
+      name          : '<init>'
+      type          : '(Landroid/content/Context;)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 3
+      ins           : 2
+      outs          : 2
+      insns size    : 11 16-bit code units
+19775c:                                        |[19775c] bys.<init>:(Landroid/content/Context;)V
+19776c: 7010 0f56 0100                         |0000: invoke-direct {v1}, Ljava/lang/Object;.<init>:()V // method@560f
+197772: 2200 da07                              |0003: new-instance v0, Lbyr; // type@07da
+197776: 7020 8030 2000                         |0005: invoke-direct {v0, v2}, Lcom/android/media/tv/remoteprovider/TvRemoteProvider;.<init>:(Landroid/content/Context;)V // method@3080
+19777c: 5b10 7315                              |0008: iput-object v0, v1, Lbys;.b:Lbyr; // field@1573
+197780: 0e00                                   |000a: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+        0x0006 line=7
+        0x0007 line=8
+        0x0008 line=9
+        0x0009 line=10
+        0x000a line=11
+      locals        :
+        0x0000 - 0x000b reg=1 this Lbys;
+        0x0000 - 0x000b reg=2 (null) Landroid/content/Context;
+
+  Virtual methods   -
+    #0              : (in Lbys;)
+      name          : 'a'
+      type          : '(Lbyq;)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 2
+      insns size    : 6 16-bit code units
+197784:                                        |[197784] bys.a:(Lbyq;)V
+197794: 5400 7315                              |0000: iget-object v0, v0, Lbys;.b:Lbyr; // field@1573
+197798: 6e20 e727 1000                         |0002: invoke-virtual {v0, v1}, Lbyr;.closeInputBridge:(Landroid/os/IBinder;)V // method@27e7
+19779e: 0e00                                   |0005: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+      locals        :
+        0x0000 - 0x0006 reg=0 this Lbys;
+        0x0000 - 0x0006 reg=1 (null) Lbyq;
+
+    #1              : (in Lbys;)
+      name          : 'b'
+      type          : '(Lbyq;)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 2
+      insns size    : 6 16-bit code units
+1977a0:                                        |[1977a0] bys.b:(Lbyq;)V
+1977b0: 5400 7315                              |0000: iget-object v0, v0, Lbys;.b:Lbyr; // field@1573
+1977b4: 6e20 f127 1000                         |0002: invoke-virtual {v0, v1}, Lbyr;.sendPointerSync:(Landroid/os/IBinder;)V // method@27f1
+1977ba: 0e00                                   |0005: return-void
+      catches       : (none)
+      positions     :
+        0x0000 line=1
+        0x0001 line=2
+        0x0002 line=3
+        0x0003 line=4
+        0x0004 line=5
+        0x0005 line=6
+      locals        :
+        0x0000 - 0x0006 reg=0 this Lbys;
+        0x0000 - 0x0006 reg=1 (null) Lbyq;
+
+  source_file_idx   : 9051 (PG)
+

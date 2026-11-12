@@ -1,0 +1,162 @@
+  Class descriptor  : 'Lbtb;'
+  Access flags      : 0x0010 (FINAL)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+    #0              : 'Landroid/hardware/input/InputManager$InputDeviceListener;'
+  Static fields     -
+  Instance fields   -
+    #0              : (in Lbtb;)
+      name          : 'a'
+      type          : 'Landroid/hardware/input/InputManager;'
+      access        : 0x1010 (FINAL SYNTHETIC)
+    #1              : (in Lbtb;)
+      name          : 'b'
+      type          : 'Landroid/os/Handler;'
+      access        : 0x1010 (FINAL SYNTHETIC)
+    #2              : (in Lbtb;)
+      name          : 'c'
+      type          : 'Ljava/util/function/Consumer;'
+      access        : 0x1010 (FINAL SYNTHETIC)
+    #3              : (in Lbtb;)
+      name          : 'd'
+      type          : 'Lbte;'
+      access        : 0x1010 (FINAL SYNTHETIC)
+  Direct methods    -
+    #0              : (in Lbtb;)
+      name          : '<init>'
+      type          : '(Lbte;Landroid/hardware/input/InputManager;Landroid/os/Handler;Ljava/util/function/Consumer;)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 5
+      ins           : 5
+      outs          : 1
+      insns size    : 12 16-bit code units
+1832a8:                                        |[1832a8] btb.<init>:(Lbte;Landroid/hardware/input/InputManager;Landroid/os/Handler;Ljava/util/function/Consumer;)V
+1832b8: 5b02 3213                              |0000: iput-object v2, v0, Lbtb;.a:Landroid/hardware/input/InputManager; // field@1332
+1832bc: 5b03 3313                              |0002: iput-object v3, v0, Lbtb;.b:Landroid/os/Handler; // field@1333
+1832c0: 5b04 3413                              |0004: iput-object v4, v0, Lbtb;.c:Ljava/util/function/Consumer; // field@1334
+1832c4: 5b01 3513                              |0006: iput-object v1, v0, Lbtb;.d:Lbte; // field@1335
+1832c8: 7010 0f56 0000                         |0008: invoke-direct {v0}, Ljava/lang/Object;.<init>:()V // method@560f
+1832ce: 0e00                                   |000b: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+        0x0000 - 0x000c reg=0 this Lbtb;
+        0x0000 - 0x000c reg=1 (null) Lbte;
+        0x0000 - 0x000c reg=2 (null) Landroid/hardware/input/InputManager;
+        0x0000 - 0x000c reg=3 (null) Landroid/os/Handler;
+        0x0000 - 0x000c reg=4 (null) Ljava/util/function/Consumer;
+
+  Virtual methods   -
+    #0              : (in Lbtb;)
+      name          : 'onInputDeviceAdded'
+      type          : '(I)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 8
+      ins           : 2
+      outs          : 5
+      insns size    : 121 16-bit code units
+1832d0:                                        |[1832d0] btb.onInputDeviceAdded:(I)V
+1832e0: 5460 3213                              |0000: iget-object v0, v6, Lbtb;.a:Landroid/hardware/input/InputManager; // field@1332
+1832e4: 6e20 d409 7000                         |0002: invoke-virtual {v0, v7}, Landroid/hardware/input/InputManager;.getInputDevice:(I)Landroid/view/InputDevice; // method@09d4
+1832ea: 0c01                                   |0005: move-result-object v1
+1832ec: 1a02 9f38                              |0006: const-string v2, "onInputDeviceAdded" // string@389f
+1832f0: 1a03 702e                              |0008: const-string v3, "com/google/android/tv/remote/service/KeyboardFeature$1" // string@2e70
+1832f4: 1a04 270f                              |000a: const-string v4, "KeyboardFeature.java" // string@0f27
+1832f8: 3901 1600                              |000c: if-nez v1, 0022 // +0016
+1832fc: 6206 3f13                              |000e: sget-object v6, Lbte;.a:Lcgs; // field@133f
+183300: 6e10 6a2c 0600                         |0010: invoke-virtual {v6}, Lcgk;.g:()Lchg; // method@2c6a
+183306: 0c06                                   |0013: move-result-object v6
+183308: 1300 4f00                              |0014: const/16 v0, #int 79 // #4f
+18330c: 7254 8b2c 3602                         |0016: invoke-interface {v6, v3, v2, v0, v4}, Lcgr;.j:(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lchg; // method@2c8b
+183312: 0c06                                   |0019: move-result-object v6
+183314: 1f06 b308                              |001a: check-cast v6, Lcgr; // type@08b3
+183318: 1a00 3b26                              |001c: const-string v0, "The input device %d was added and then immediately removed" // string@263b
+18331c: 7230 8f2c 0607                         |001e: invoke-interface {v6, v0, v7}, Lcgr;.s:(Ljava/lang/String;I)V // method@2c8f
+183322: 0e00                                   |0021: return-void
+183324: 6207 3f13                              |0022: sget-object v7, Lbte;.a:Lcgs; // field@133f
+183328: 6e10 682c 0700                         |0024: invoke-virtual {v7}, Lcgk;.e:()Lchg; // method@2c68
+18332e: 0c07                                   |0027: move-result-object v7
+183330: 6205 5715                              |0028: sget-object v5, Lbyf;.a:Lchj; // field@1557
+183334: 7220 892c 5700                         |002a: invoke-interface {v7, v5}, Lcgr;.g:(Lchj;)Lchg; // method@2c89
+18333a: 0c07                                   |002d: move-result-object v7
+18333c: 1f07 b308                              |002e: check-cast v7, Lcgr; // type@08b3
+183340: 1305 5600                              |0030: const/16 v5, #int 86 // #56
+183344: 7254 8b2c 3752                         |0032: invoke-interface {v7, v3, v2, v5, v4}, Lcgr;.j:(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lchg; // method@2c8b
+18334a: 0c07                                   |0035: move-result-object v7
+18334c: 1f07 b308                              |0036: check-cast v7, Lcgr; // type@08b3
+183350: 6e10 2810 0100                         |0038: invoke-virtual {v1}, Landroid/view/InputDevice;.getName:()Ljava/lang/String; // method@1028
+183356: 0c02                                   |003b: move-result-object v2
+183358: 6e10 2610 0100                         |003c: invoke-virtual {v1}, Landroid/view/InputDevice;.getId:()I // method@1026
+18335e: 0a03                                   |003f: move-result v3
+183360: 1a04 b00e                              |0040: const-string v4, "Input device %s(%d) is registered" // string@0eb0
+183364: 7240 962c 4732                         |0042: invoke-interface {v7, v4, v2, v3}, Lcgr;.z:(Ljava/lang/String;Ljava/lang/Object;I)V // method@2c96
+18336a: 6e10 2810 0100                         |0045: invoke-virtual {v1}, Landroid/view/InputDevice;.getName:()Ljava/lang/String; // method@1028
+183370: 0c07                                   |0048: move-result-object v7
+183372: 1a02 823f                              |0049: const-string v2, "virtual-remote" // string@3f82
+183376: 6e20 4156 2700                         |004b: invoke-virtual {v7, v2}, Ljava/lang/String;.equals:(Ljava/lang/Object;)Z // method@5641
+18337c: 0a07                                   |004e: move-result v7
+18337e: 3807 2900                              |004f: if-eqz v7, 0078 // +0029
+183382: 6e20 d609 6000                         |0051: invoke-virtual {v0, v6}, Landroid/hardware/input/InputManager;.unregisterInputDeviceListener:(Landroid/hardware/input/InputManager$InputDeviceListener;)V // method@09d6
+183388: 5467 3313                              |0054: iget-object v7, v6, Lbtb;.b:Landroid/os/Handler; // field@1333
+18338c: 1200                                   |0056: const/4 v0, #int 0 // #0
+18338e: 6e20 fc0a 0700                         |0057: invoke-virtual {v7, v0}, Landroid/os/Handler;.removeCallbacksAndMessages:(Ljava/lang/Object;)V // method@0afc
+183394: 1307 1a00                              |005a: const/16 v7, #int 26 // #1a
+183398: 2410 5512 0700                         |005c: filled-new-array {v7}, [I // type@1255
+18339e: 0c07                                   |005f: move-result-object v7
+1833a0: 6e20 2910 7100                         |0060: invoke-virtual {v1, v7}, Landroid/view/InputDevice;.hasKeys:([I)[Z // method@1029
+1833a6: 0c07                                   |0063: move-result-object v7
+1833a8: 5460 3513                              |0064: iget-object v0, v6, Lbtb;.d:Lbte; // field@1335
+1833ac: 1201                                   |0066: const/4 v1, #int 0 // #0
+1833ae: 4707 0701                              |0067: aget-boolean v7, v7, v1
+1833b2: df07 0701                              |0069: xor-int/lit8 v7, v7, #int 1 // #01
+1833b6: 7110 5455 0700                         |006b: invoke-static {v7}, Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean; // method@5554
+1833bc: 0c07                                   |006e: move-result-object v7
+1833be: 5b07 4213                              |006f: iput-object v7, v0, Lbte;.d:Ljava/lang/Boolean; // field@1342
+1833c2: 5466 3413                              |0071: iget-object v6, v6, Lbtb;.c:Ljava/util/function/Consumer; // field@1334
+1833c6: 5407 4213                              |0073: iget-object v7, v0, Lbte;.d:Ljava/lang/Boolean; // field@1342
+1833ca: 7120 2e54 7600                         |0075: invoke-static {v6, v7}, Lj$$ExternalSyntheticApiModelOutline1;.m:(Ljava/util/function/Consumer;Ljava/lang/Object;)V // method@542e
+1833d0: 0e00                                   |0078: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+        0x0000 - 0x0079 reg=6 this Lbtb;
+        0x0000 - 0x0079 reg=7 (null) I
+
+    #1              : (in Lbtb;)
+      name          : 'onInputDeviceChanged'
+      type          : '(I)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 0
+      insns size    : 1 16-bit code units
+1833d4:                                        |[1833d4] btb.onInputDeviceChanged:(I)V
+1833e4: 0e00                                   |0000: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+        0x0000 - 0x0001 reg=0 this Lbtb;
+        0x0000 - 0x0001 reg=1 (null) I
+
+    #2              : (in Lbtb;)
+      name          : 'onInputDeviceRemoved'
+      type          : '(I)V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 0
+      insns size    : 1 16-bit code units
+1833e8:                                        |[1833e8] btb.onInputDeviceRemoved:(I)V
+1833f8: 0e00                                   |0000: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+        0x0000 - 0x0001 reg=0 this Lbtb;
+        0x0000 - 0x0001 reg=1 (null) I
+
+  source_file_idx   : 9051 (PG)
+

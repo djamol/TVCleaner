@@ -1,0 +1,91 @@
+
+===== 'Lbyq;' =====
+  Class descriptor  : 'Lbyq;'
+  Access flags      : 0x0601 (PUBLIC INTERFACE ABSTRACT)
+  Superclass        : 'Ljava/lang/Object;'
+  Interfaces        -
+    #0              : 'Landroid/os/IBinder;'
+  Static fields     -
+  Instance fields   -
+  Direct methods    -
+  Virtual methods   -
+    #0              : (in Lbyq;)
+      name          : 'a'
+      type          : '()V'
+      access        : 0x0401 (PUBLIC ABSTRACT)
+      code          : (none)
+
+  source_file_idx   : 9051 (PG)
+
+
+===== 'Lbtx;' =====
+  Class descriptor  : 'Lbtx;'
+  Access flags      : 0x0010 (FINAL)
+  Superclass        : 'Landroid/os/Binder;'
+  Interfaces        -
+    #0              : 'Lbyq;'
+  Static fields     -
+  Instance fields   -
+    #0              : (in Lbtx;)
+      name          : 'a'
+      type          : 'I'
+      access        : 0x1012 (PRIVATE FINAL SYNTHETIC)
+  Direct methods    -
+    #0              : (in Lbtx;)
+      name          : '<init>'
+      type          : '(I)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 1
+      insns size    : 6 16-bit code units
+188df0:                                        |[188df0] btx.<init>:(I)V
+188e00: 5901 7213                              |0000: iput v1, v0, Lbtx;.a:I // field@1372
+188e04: 7010 a80a 0000                         |0002: invoke-direct {v0}, Landroid/os/Binder;.<init>:()V // method@0aa8
+188e0a: 0e00                                   |0005: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+        0x0000 - 0x0006 reg=0 this Lbtx;
+        0x0000 - 0x0006 reg=1 (null) I
+
+    #1              : (in Lbtx;)
+      name          : '<init>'
+      type          : '(I[B)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 3
+      ins           : 3
+      outs          : 1
+      insns size    : 6 16-bit code units
+188e20:                                        |[188e20] btx.<init>:(I[B)V
+188e30: 5901 7213                              |0000: iput v1, v0, Lbtx;.a:I // field@1372
+188e34: 7010 a80a 0000                         |0002: invoke-direct {v0}, Landroid/os/Binder;.<init>:()V // method@0aa8
+188e3a: 0e00                                   |0005: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+        0x0000 - 0x0006 reg=0 this Lbtx;
+        0x0000 - 0x0006 reg=1 (null) I
+        0x0000 - 0x0006 reg=2 (null) [B
+
+  Virtual methods   -
+    #0              : (in Lbtx;)
+      name          : 'a'
+      type          : '()V'
+      access        : 0x0011 (PUBLIC FINAL)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 0
+      insns size    : 1 16-bit code units
+188e0c:                                        |[188e0c] btx.a:()V
+188e1c: 0e00                                   |0000: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+        0x0000 - 0x0001 reg=0 this Lbtx;
+
+  source_file_idx   : 9051 (PG)
+
